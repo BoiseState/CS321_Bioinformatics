@@ -1,0 +1,133 @@
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
+plugins {
+    id 'java'
+}
+
+group 'cs321'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task createJarGeneBankCreateBTree(type: Jar) {
+    group = 'Run'
+    description = 'create build/libs/GeneBankCreateBTree.jar'
+
+    from(sourceSets.main.output) {
+        include "cs321/create/**"
+    }
+
+    manifest {
+        attributes 'Implementation-Title': 'GeneBankCreateBTree',
+                'Implementation-Version': version,
+                'Main-Class': 'cs321.create.GeneBankCreateBTree'
+    }
+    baseName = 'GeneBankCreateBTree'
+    version = ''
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+task createJarGeneBankSearch(type: Jar) {
+    group = 'Run'
+    description = 'create build/libs/GeneBankSearch.jar'
+
+    from(sourceSets.main.output) {
+        include "cs321/search/**"
+    }
+
+    manifest {
+        attributes 'Implementation-Title': 'GeneBankSearch',
+                'Implementation-Version': version,
+                'Main-Class': 'cs321.search.GeneBankSearch'
+    }
+    baseName = 'GeneBankSearch'
+    version = ''
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+
+tasks.createJarGeneBankCreateBTree.finalizedBy('printInstructionsToRunJarGeneBankCreateBTree')
+
+task printInstructionsToRunJarGeneBankCreateBTree {
+    doLast {
+        println ''
+        println '------------------------------------------------------------'
+        println 'The GeneBankCreateBTree.jar was created successfully. Run:'
+        println '$ java -jar build/libs/GeneBankCreateBTree.jar <arguments>'
+        println '------------------------------------------------------------'
+        println ''
+    }
+
+    onlyIf {
+        tasks.createJarGeneBankCreateBTree.state.failure == null
+    }
+}
+
+tasks.createJarGeneBankSearch.finalizedBy('printInstructionsToRunJarGeneBankSearch')
+
+task printInstructionsToRunJarGeneBankSearch {
+    doLast {
+        println ''
+        println '------------------------------------------------------------'
+        println 'The GeneBankSearch.jar was created successfully. Run:'
+        println '$ java -jar build/libs/GeneBankSearch.jar <arguments>'
+        println '------------------------------------------------------------'
+        println ''
+    }
+
+    onlyIf {
+        tasks.createJarGeneBankSearch.state.failure == null
+    }
+}
+
+// When running
+// `$ ./gradlew test`
+// print to console the test outcome and a summary of the tests
+// Source:
+//   https://stackoverflow.com/questions/3963708/gradle-how-to-display-test-results-in-the-console-in-real-time
+tasks.withType(Test) {
+    testLogging {
+        // set options for log level LIFECYCLE
+        events TestLogEvent.FAILED,
+               TestLogEvent.PASSED,
+               TestLogEvent.SKIPPED,
+               TestLogEvent.STANDARD_OUT
+        exceptionFormat TestExceptionFormat.FULL
+        showExceptions true
+        showCauses true
+        showStackTraces true
+
+        // set options for log level DEBUG and INFO
+        debug {
+            events TestLogEvent.STARTED,
+                   TestLogEvent.FAILED,
+                   TestLogEvent.PASSED,
+                   TestLogEvent.SKIPPED,
+                   TestLogEvent.STANDARD_ERROR,
+                   TestLogEvent.STANDARD_OUT
+            exceptionFormat TestExceptionFormat.FULL
+        }
+        info.events = debug.events
+        info.exceptionFormat = debug.exceptionFormat
+
+        afterSuite { desc, result ->
+            if (!desc.parent) { // will match the outermost suite
+                def output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
+                def startItem = '|  ', endItem = '  |'
+                def repeatLength = startItem.length() + output.length() + endItem.length()
+                println('\n' + ('-' * repeatLength) + '\n' + startItem + output + endItem + '\n' + ('-' * repeatLength))
+            }
+        }
+    }
+}

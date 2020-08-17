@@ -1,0 +1,16 @@
+# Java
+*.class
+*.jar
+
+# Eclipse
+bin/
+
+#IntelliJ
+.idea/
+out/
+*.iml
+
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
