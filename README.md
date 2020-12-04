@@ -70,8 +70,10 @@ $ java -jar build/libs/GeneBankSearch.jar <arguments>
 ```
 
 ## Eclipse Project
-This repository is an [Eclipse](https://www.eclipse.org/) project, but it can
-be imported into [IntelliJ IDEA](https://www.jetbrains.com/idea/) or other IDEs.
+This repository is an [Eclipse](https://www.eclipse.org/) project,
+and can be directly opened in [Eclipse](https://www.eclipse.org/) (e.g., `File -> Open Projects from File System...`).
+
+However, it can be imported into [IntelliJ IDEA](https://www.jetbrains.com/idea/) or other IDEs.
 
 <hr/>
 
