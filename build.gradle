@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
 task createJarGeneBankCreateBTree(type: Jar) {
@@ -28,12 +28,16 @@ task createJarGeneBankCreateBTree(type: Jar) {
 
     manifest {
         attributes 'Implementation-Title': 'GeneBankCreateBTree',
-                'Implementation-Version': version,
+                'Implementation-Version': archiveVersion,
                 'Main-Class': 'cs321.create.GeneBankCreateBTree'
     }
-    baseName = 'GeneBankCreateBTree'
-    version = ''
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    archiveBaseName = 'GeneBankCreateBTree'
+    archiveVersion = ''
+
+    // the duplicatesStrategy is required by Gradle 7
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE //allow duplicate *.class files in the jar
+
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
 
@@ -47,12 +51,16 @@ task createJarGeneBankSearch(type: Jar) {
 
     manifest {
         attributes 'Implementation-Title': 'GeneBankSearch',
-                'Implementation-Version': version,
+                'Implementation-Version': archiveVersion,
                 'Main-Class': 'cs321.search.GeneBankSearch'
     }
-    baseName = 'GeneBankSearch'
-    version = ''
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    archiveBaseName = 'GeneBankSearch'
+    archiveVersion = ''
+
+    // the duplicatesStrategy is required by Gradle 7
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE //allow duplicate *.class files in the jar
+
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
 
