@@ -283,9 +283,8 @@ nodes, and so on. This information could be stored in separate metadata file or 
 the beginning of the B-Tree file.
 
 #### 5.2.3. The B-Tree should be stored as a binary data file on the disk (and not as a text file)
-If the name of
-the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree degree is `<t>`, then the
-name of the B-Tree file should be `xyz.gbk.btree.data`.`<k>.<t>`.
+If the name of the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree
+degree is `<t>`, then the name of the B-Tree file should be `xyz.gbk.btree.data`.`<k>.<t>`.
 
 :book: Describe the layout of the B-Tree file on disk as well as any other relevant observations
 in the [`README-submission.md`](/README-submission.md) file.
@@ -301,7 +300,9 @@ Preferably, run all your tests at home. If you do need to run them in the lab, p
 not run them on `onyx`. Instead run them on one of the workstations. If you are log in to `onyx`
 remotely via `ssh`, then `ssh` into a idle workstation to run your tests. You can check if anyone
 is on a workstation with the command `who`. You can also check the load on the system with the
-command `top`. The workstations are named `node00` through `node32`.
+command `top`. The workstations are named `onyxnode01` through `onyxnode99`.
+
+We will setup Amazon AWS accounts for each student so you can run your tests in the cloud.
 
 ## 6. Using a Cache
 You can incorporate the Cache object from `Project 1` to improve the performance of your B-Tree
@@ -318,19 +319,17 @@ week. To clarify:
 one progress report, per week, per member
 ```
 
-A progress report should describe your project-related activities for the week, including
-the URL to the
-tasks (e.g., `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`)
-completed that week.
-As a reminder, each commit should link (reference) in the commit message the completed task
-(e.g., `Implements task #123`), in order to automatically link the task to the commit, and
-make the code changes directly available from the task itself.
+A progress report should describe your project-related
+activities for the week, including the URL to the tasks (e.g.,
+`https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
+week.  As a reminder, each commit should link (reference) in the commit message the completed
+task (e.g., `Implements task #123`), in order to automatically link the task to the commit,
+and make the code changes directly available from the task itself.
 
 It is expected that each team should have at least one meeting every week.
 
-You can (and should, if necessary)
-complain about your teammates, and the instructor will take their behavior into consideration.
-Progress reports are confidential.
+You can (and should, if necessary) complain about your teammates, and the instructor will take
+their behavior into consideration.  Progress reports are confidential.
 
 ## 8. Submission
 Before submission, make sure that you:
