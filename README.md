@@ -45,9 +45,17 @@ listing all the available gradle tasks and their descriptions.
 **NOTE:** On Windows, the `./gradlew` command should be replaced with `gradlew`
 (which will call the [`gradlew.bat`](/gradlew.bat) file)
 
-The same team member should push the cloned repository to the new private repository.
+The same team member should push the cloned repository to the new private repository.  This can
+be done by changing the remote URL of the cloned repository to the new private repository's URL.
 
-Each team member should clone the newly created student repository containing the [starter code](#starter-code).
+```bash
+git remote set-url origin NEW_URL
+git remote -v
+git push
+```
+
+The other team members should then clone the newly created student repository containing the
+[starter code](#starter-code).
 
 ## Compile and Run the Project from the Command Line
 Gradle allows running unit tests and code from IDEs, or the command line, as described below.
@@ -313,6 +321,9 @@ as well.
 :book: Report the time improvement using a cache of size `100` and `500` in your [`README-submission.md`](/README-submission.md) file.
 
 ## 7. Progress Reports
+
+This section will be updated soon.
+
 Each team member should email the instructor, a short progress report each
 week. To clarify:
 ```
