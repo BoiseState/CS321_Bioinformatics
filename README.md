@@ -310,7 +310,7 @@ remotely via `ssh`, then `ssh` into a idle workstation to run your tests. You ca
 is on a workstation with the command `who`. You can also check the load on the system with the
 command `top`. The workstations are named `onyxnode01` through `onyxnode99`.
 
-We will setup Amazon AWS accounts for each student so you can run your tests in the cloud.
+We will setup Amazon AWS accounts for each student so you can run your larger tests in the cloud.
 
 ## 6. Using a Cache
 You can incorporate the Cache object from `Project 1` to improve the performance of your B-Tree
@@ -331,25 +331,21 @@ at to understand how to deal with disk IO.
 
 ## 8. Progress Reports
 
-This section will be updated soon.
+Each team member will fill out a progress report (via a survey) each week. The link to the
+survey will be posted on Piazza.
 
-Each team member should email the instructor, a short progress report each
-week. To clarify:
-```
-one progress report, per week, per member
-```
-
-A progress report should describe your project-related
+In addition, each team member should log tjeir project-related
 activities for the week, including the URL to the tasks (e.g.,
 `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
-week.  As a reminder, each commit should link (reference) in the commit message the completed
-task (e.g., `Implements task #123`), in order to automatically link the task to the commit,
-and make the code changes directly available from the task itself.
+week, in a separate file named Project-Log.md.
+
+As a reminder, each commit should link (reference) in the commit message the completed task
+(e.g., `Implements task #123`), in order to automatically link the task to the commit, and make
+the code changes directly available from the task itself.
 
 It is expected that each team should have at least one meeting every week.
 
-You can (and should, if necessary) complain about your teammates, and the instructor will take
-their behavior into consideration.  Progress reports are confidential.
+Progress reports are confidential.
 
 ## 8. Submission
 Before submission, make sure that you:
