@@ -320,7 +320,16 @@ as well.
 
 :book: Report the time improvement using a cache of size `100` and `500` in your [`README-submission.md`](/README-submission.md) file.
 
-## 7. Progress Reports
+## 7. Useful Examples
+
+The following two example projects from the class examples repository will be useful for you to look
+at to understand how to deal with disk IO.
+
+- [disk IO example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples)
+- [external binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search)
+
+
+## 8. Progress Reports
 
 This section will be updated soon.
 
