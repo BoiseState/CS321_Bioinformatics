@@ -313,23 +313,36 @@ command `top`. The workstations are named `onyxnode01` through `onyxnode99`.
 We will setup [Amazon AWS](https://aws.amazon.com/) accounts for each student so you can run your larger tests in the cloud.
 
 ## 6. Using a Cache
-You can incorporate the Cache object from `Project 1` to improve the performance of your B-Tree
+You should incorporate the Cache object from `Project 1` to improve the performance of your B-Tree
 implementation. The size of the Cache should be a command line argument. An entry in the Cache is a
 `BTreeNode`. With the `<1 (cache)>` command line option, the `<cache_size>` needs to be specified
 as well.
 
 :book: Report the time improvement using a cache of size `100` and `500` in your [`README-submission.md`](/README-submission.md) file.
 
-## 7. Useful Examples
+## 7. Using a Database to store and search the results
+
+Design a simple database to store the results (sequences and frequencies) from the B-Tree. We
+will perform an inorder tree traversal to get the information to store in the database. This
+would be done at the end of creating the GeneBank BTree. Then we will create a separate search
+program named `GeneBankSearchDatabase` that uses the database instead of the BTree.
+
+```bash
+$ ./gradlew createJarGeneBankSearchDatabase
+$ java -jar build/libs/GeneBankSearchDatabase.jar <path_to_SQLite_database> <query_file> [<debug_level>]
+```
+
+## 8. Useful Examples
 
 The following two example projects from the class examples repository will be useful for you to look
 at to understand how to deal with disk IO.
 
 - [disk IO example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples)
 - [external binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search)
+- [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite)
 
 
-## 8. Progress Reports
+## 9. Progress Reports
 
 Each team member will fill out a progress report (via a survey) each week. The link to the
 survey will be posted on Piazza.
@@ -347,7 +360,7 @@ It is expected that each team should have at least one meeting every week.
 
 Progress reports are confidential.
 
-## 8. Submission
+## 10. Submission
 Before submission, make sure that you:
 - can clone the team repository on `onyx`
 - can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) and obtain the expected results
