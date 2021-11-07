@@ -71,10 +71,10 @@ $ ./gradlew createJarGeneBankCreateBTree
 $ java -jar build/libs/GeneBankCreateBTree.jar <arguments>
 ```
 
-Run the `main` method from `GeneBankSearch.java` and pass the [appropriate `<arguments>`](#51-program-arguments):
+Run the `main` method from `GeneBankSearchBTree.java` and pass the [appropriate `<arguments>`](#51-program-arguments):
 ```bash
-$ ./gradlew createJarGeneBankSearch
-$ java -jar build/libs/GeneBankSearch.jar <arguments>
+$ ./gradlew createJarGeneBankSearchBTree
+$ java -jar build/libs/GeneBankSearchBTree.jar <arguments>
 ```
 
 ## Eclipse Project
@@ -228,7 +228,7 @@ You will have two programs:
 - another for **searching in the specified BTree** for subsequences of given length. The search program
 assumes that the user specified the proper BTree to use depending upon the query length.
 
-The main Java classes should be named `GeneBankCreateBTree` and `GeneBankSearch`.
+The main Java classes should be named `GeneBankCreateBTree` and `GeneBankSearchBTree`.
 
 ### 5.1. Program Arguments
 The required arguments for the two programs are shown below:
@@ -236,7 +236,7 @@ The required arguments for the two programs are shown below:
 ```bash
 java -jar build/libs/GeneBankCreateBTree.jar <0/1(no/with Cache)> <degree> <gbk_file> <subsequence_length> [<cache_size>] [<debug_level>]
 
-java -jar build/libs/GeneBankSearch.jar <0/1(no/with Cache)> <btree_file> <query_file> [<cache_size>] [<debug_level>]
+java -jar build/libs/GeneBankSearchBTree.jar <0/1(no/with Cache)> <btree_file> <query_file> [<cache_size>] [<debug_level>]
 ```
 
 - `<0 (no cache) | 1 (cache)>` specifies whether the program should use cache (value `1`) or
@@ -261,7 +261,7 @@ number of `BTreeNode` objects that can be stored in memory
 
 - `[<debug level>]` is an optional argument with a default value of zero.
 
-    - It must support at least the following values for `GeneBankSearch`:
+    - It must support at least the following values for `GeneBankSearchBTree`:
 
         - `0`: The output of the queries should be printed on the standard output stream. Any diagnostic messages, help and status messages must be be printed on standard error stream.
 
