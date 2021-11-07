@@ -64,6 +64,28 @@ task createJarGeneBankSearchBTree(type: Jar) {
     with jar
 }
 
+task createJarGeneBankSearchDatabase(type: Jar) {
+    group = 'Run'
+    description = 'create build/libs/GeneBankSearchDatabase.jar'
+
+    from(sourceSets.main.output) {
+        include "cs321/search/**"
+    }
+
+    manifest {
+        attributes 'Implementation-Title': 'GeneBankSearchDatabase',
+                'Implementation-Version': archiveVersion,
+                'Main-Class': 'cs321.search.GeneBankSearchDatabase'
+    }
+    archiveBaseName = 'GeneBankSearchDatabase'
+    archiveVersion = ''
+
+    // the duplicatesStrategy is required by Gradle 7
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE //allow duplicate *.class files in the jar
+
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 
 tasks.createJarGeneBankCreateBTree.finalizedBy('printInstructionsToRunJarGeneBankCreateBTree')
 
@@ -96,6 +118,23 @@ task printInstructionsToRunJarGeneBankSearchBTree {
 
     onlyIf {
         tasks.createJarGeneBankSearchBTree.state.failure == null
+    }
+}
+
+tasks.createJarGeneBankSearchDatabase.finalizedBy('printInstructionsToRunJarGeneBankSearchDatabase')
+
+task printInstructionsToRunJarGeneBankSearchDatabase {
+    doLast {
+        println ''
+        println '------------------------------------------------------------'
+        println 'The GeneBankSearchDatabase.jar was created successfully. Run:'
+        println '$ java -jar build/libs/GeneBankSearchDatabase.jar <arguments>'
+        println '------------------------------------------------------------'
+        println ''
+    }
+
+    onlyIf {
+        tasks.createJarGeneBankSearchDatabase.state.failure == null
     }
 }
 
