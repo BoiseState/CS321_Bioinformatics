@@ -44,5 +44,7 @@ jobs:
 #      run: ./gradlew test
     - name: Create jar GeneBankCreateBTree with Gradle
       run: ./gradlew createJarGeneBankCreateBTree
-    - name: Create jar GeneBankSearch with Gradle
-      run: ./gradlew createJarGeneBankSearch
+    - name: Create jar GeneBankSearchBTree with Gradle
+      run: ./gradlew createJarGeneBankSearchBTree
+    - name: Create jar GeneBankSearchDatabase with Gradle
+      run: ./gradlew createJarGeneBankSearchDatabase

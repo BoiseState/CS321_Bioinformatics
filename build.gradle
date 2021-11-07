@@ -15,6 +15,9 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'
+
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
@@ -41,20 +44,20 @@ task createJarGeneBankCreateBTree(type: Jar) {
     with jar
 }
 
-task createJarGeneBankSearch(type: Jar) {
+task createJarGeneBankSearchBTree(type: Jar) {
     group = 'Run'
-    description = 'create build/libs/GeneBankSearch.jar'
+    description = 'create build/libs/GeneBankSearchBTree.jar'
 
     from(sourceSets.main.output) {
         include "cs321/search/**"
     }
 
     manifest {
-        attributes 'Implementation-Title': 'GeneBankSearch',
+        attributes 'Implementation-Title': 'GeneBankSearchBTree',
                 'Implementation-Version': archiveVersion,
-                'Main-Class': 'cs321.search.GeneBankSearch'
+                'Main-Class': 'cs321.search.GeneBankSearchBTree'
     }
-    archiveBaseName = 'GeneBankSearch'
+    archiveBaseName = 'GeneBankSearchBTree'
     archiveVersion = ''
 
     // the duplicatesStrategy is required by Gradle 7
@@ -64,6 +67,28 @@ task createJarGeneBankSearch(type: Jar) {
     with jar
 }
 
+task createJarGeneBankSearchDatabase(type: Jar) {
+    group = 'Run'
+    description = 'create build/libs/GeneBankSearchDatabase.jar'
+
+    from(sourceSets.main.output) {
+        include "cs321/search/**"
+    }
+
+    manifest {
+        attributes 'Implementation-Title': 'GeneBankSearchDatabase',
+                'Implementation-Version': archiveVersion,
+                'Main-Class': 'cs321.search.GeneBankSearchDatabase'
+    }
+    archiveBaseName = 'GeneBankSearchDatabase'
+    archiveVersion = ''
+
+    // the duplicatesStrategy is required by Gradle 7
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE //allow duplicate *.class files in the jar
+
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 
 tasks.createJarGeneBankCreateBTree.finalizedBy('printInstructionsToRunJarGeneBankCreateBTree')
 
@@ -82,20 +107,37 @@ task printInstructionsToRunJarGeneBankCreateBTree {
     }
 }
 
-tasks.createJarGeneBankSearch.finalizedBy('printInstructionsToRunJarGeneBankSearch')
+tasks.createJarGeneBankSearchBTree.finalizedBy('printInstructionsToRunJarGeneBankSearchBTree')
 
-task printInstructionsToRunJarGeneBankSearch {
+task printInstructionsToRunJarGeneBankSearchBTree {
     doLast {
         println ''
         println '------------------------------------------------------------'
-        println 'The GeneBankSearch.jar was created successfully. Run:'
-        println '$ java -jar build/libs/GeneBankSearch.jar <arguments>'
+        println 'The GeneBankSearchBTree.jar was created successfully. Run:'
+        println '$ java -jar build/libs/GeneBankSearchBTree.jar <arguments>'
         println '------------------------------------------------------------'
         println ''
     }
 
     onlyIf {
-        tasks.createJarGeneBankSearch.state.failure == null
+        tasks.createJarGeneBankSearchBTree.state.failure == null
+    }
+}
+
+tasks.createJarGeneBankSearchDatabase.finalizedBy('printInstructionsToRunJarGeneBankSearchDatabase')
+
+task printInstructionsToRunJarGeneBankSearchDatabase {
+    doLast {
+        println ''
+        println '------------------------------------------------------------'
+        println 'The GeneBankSearchDatabase.jar was created successfully. Run:'
+        println '$ java -jar build/libs/GeneBankSearchDatabase.jar <arguments>'
+        println '------------------------------------------------------------'
+        println ''
+    }
+
+    onlyIf {
+        tasks.createJarGeneBankSearchDatabase.state.failure == null
     }
 }
 
