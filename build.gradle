@@ -15,6 +15,9 @@ repositories {
 }
 
 dependencies {
+    // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.3'
+
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
