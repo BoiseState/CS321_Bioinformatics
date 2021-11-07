@@ -49,9 +49,9 @@ The same team member should push the cloned repository to the new private reposi
 be done by changing the remote URL of the cloned repository to the new private repository's URL.
 
 ```bash
-git remote set-url origin NEW_URL
-git remote -v
-git push
+$ git remote set-url origin NEW_URL_OF_YOUR_NEW_PRIVATE_REPOSITORY
+$ git remote -v
+$ git push
 ```
 
 The other team members should then clone the newly created student repository containing the
@@ -310,7 +310,7 @@ remotely via `ssh`, then `ssh` into a idle workstation to run your tests. You ca
 is on a workstation with the command `who`. You can also check the load on the system with the
 command `top`. The workstations are named `onyxnode01` through `onyxnode99`.
 
-We will setup Amazon AWS accounts for each student so you can run your larger tests in the cloud.
+We will setup [Amazon AWS](https://aws.amazon.com/) accounts for each student so you can run your larger tests in the cloud.
 
 ## 6. Using a Cache
 You can incorporate the Cache object from `Project 1` to improve the performance of your B-Tree
@@ -334,10 +334,10 @@ at to understand how to deal with disk IO.
 Each team member will fill out a progress report (via a survey) each week. The link to the
 survey will be posted on Piazza.
 
-In addition, each team member should log tjeir project-related
+In addition, each team member should log their project-related
 activities for the week, including the URL to the tasks (e.g.,
 `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
-week, in a separate file named Project-Log.md.
+week, in a separate file named `Project-Log.md`.
 
 As a reminder, each commit should link (reference) in the commit message the completed task
 (e.g., `Implements task #123`), in order to automatically link the task to the commit, and make
