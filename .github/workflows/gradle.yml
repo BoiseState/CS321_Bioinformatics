@@ -5,7 +5,8 @@
 # - Java 8 (LTS)
 # - Java 11 (LTS)
 # - Java 15 (deprecated)
-# - Java 16 (current, until September 2021)
+# - Java 16 (deprecated)
+# - Java 17 (LTS; current; not officially supported by Gradle 7.2)
 name: CS321 Bioinformatics CI with Gradle
 
 on:
@@ -21,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        java: [ '8', '11', '15', '16' ]
+        java: [ '8', '11', '15', '16', '17' ]
     name: Java version ${{ matrix.Java }}
 
     steps:
