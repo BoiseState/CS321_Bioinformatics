@@ -345,6 +345,7 @@ at to understand how to deal with disk IO.
 - [disk IO example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples)
 - [external binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search)
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite)
+- [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example)
 
 
 ## 9. Progress Reports
