@@ -6,7 +6,7 @@
 # - Java 11 (LTS)
 # - Java 15 (deprecated)
 # - Java 16 (deprecated)
-# - Java 17 (LTS; current; not officially supported by Gradle 7.2)
+# - Java 17 (LTS; current; officially supported since Gradle 7.3)
 name: CS321 Bioinformatics CI with Gradle
 
 on:
