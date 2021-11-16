@@ -113,9 +113,9 @@ In Progress     | Tasks currently being worked on
 Review/QA       | Tasks ready to be reviewed by another team member
 Closed          | Completed tasks, whose corresponding code is integrated in the `master` branch
 
-Tasks should be assigned to the developer working on them. Each team member should email the instructor
-the URL to the tasks (e.g., `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that week,
-as described in the [progress reports](#7-progress-reports).
+Tasks should be assigned to the developer working on them. Each team
+member should add to the project log file, Project-Log.md, the tasks (e.g., `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
+week, as described in the [progress reports](#9-progress-reports).
 
 Here is an example of a [valid task](https://github.com/BoiseState/CS321_Bioinformatics/issues/3) written in engineering language
 that is assigned to a developer. This task should be referenced by a commit containing a message similar to `Implements task #3`.
