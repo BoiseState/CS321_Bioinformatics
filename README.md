@@ -77,11 +77,17 @@ $ ./gradlew createJarGeneBankSearchBTree
 $ java -jar build/libs/GeneBankSearchBTree.jar <arguments>
 ```
 
+
 ## Eclipse Project
-This repository is an [Eclipse](https://www.eclipse.org/) project,
-and can be directly opened in [Eclipse](https://www.eclipse.org/) (e.g., `File -> Open Projects from File System...`).
+This repository is an [Eclipse](https://www.eclipse.org/) project, and can be directly opened in
+[Eclipse](https://www.eclipse.org/) (e.g., `File -> Open Projects from File System...`).
 
 However, it can be imported into [IntelliJ IDEA](https://www.jetbrains.com/idea/) or other IDEs.
+
+Note that you can add as many classes in the src/main/java as you want, and gradle should build
+them automatically. In other words, the you should not have to make any changes to build.gradle.
+Also, you can add new test files with new tests cases in src/test/java and those will be run
+automatically by gradle or IntelliJ.
 
 <hr/>
 
@@ -157,7 +163,9 @@ See below an image of the DNA as well as the chemical structure of the bases.
 ![DNA_physical_and_chemical_structure.png](docs/DNA_physical_and_chemical_structure.png "Physical (left) and Chemical (right) Structure of DNA")
 
 The primary source for getting the human genome (as well as all other mapped organisms)
-is in the National Center for Biotechnology Information (NCBI) website (http://www.ncbi.nlm.nih.gov/).
+is in the National Center for Biotechnology Information (NCBI) website
+(http://www.ncbi.nlm.nih.gov/). See this page for downloading [human genome
+data](https://www.ncbi.nlm.nih.gov/genome/guide/human/)
 
 We will be using the GeneBank files from NCBI. The format is described with a sample file
 at http://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html
