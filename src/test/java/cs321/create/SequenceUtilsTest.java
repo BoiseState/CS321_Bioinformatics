@@ -10,23 +10,17 @@ import static org.junit.Assert.*;
 public class SequenceUtilsTest
 {
     @Test
-    public void readGBKFileTest0AndGenerateDNASequencesTest() throws Exception
+    public void longToDNAStringTest() throws Exception
     {
-        List<String> expectedListOfDNASequences = Utils.getLinesFromFile("data/files_gbk_expected_results/test0.gbk.sequences");
+	}
 
-        //TODO: as soon as the getDNASequencesFromGBKGenomeFile method is implemented correctly, this unit test will pass without any modification
-        List<String> actualListOfDNASequences = SequenceUtils.getDNASequencesFromGBKGenomeFile("data/files_gbk/test0.gbk");
+    @Test
+    public void DNAStringToLongTest() throws Exception
+    {
+	}
 
-        assertEquals(expectedListOfDNASequences.size(), actualListOfDNASequences.size());
-
-        for (int i = 0; i < expectedListOfDNASequences.size(); i++)
-        {
-            assertEquals(expectedListOfDNASequences.get(i), actualListOfDNASequences.get(i));
-        }
-    }
-
-    //HINT: you can (manually) identify a few sequences in the other genome files
-    //      and verify that the actualListOfDNASequences contains the identified sequences
-
-
+	@Test
+	public void getComplementTest() throws Exception
+	{
+	}
 }

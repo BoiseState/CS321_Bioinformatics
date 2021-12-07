@@ -6,15 +6,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Extract DNA Sequences and Generate DNA Subsequences
+ * Utility methods dealing with DNA sequences and its compact representation as long variables.
  */
 public class SequenceUtils
 {
-    private static final String MARKER_START_DNA_SEQUENCE = "ORIGIN";
 
-    public static List<String> getDNASequencesFromGBKGenomeFile(String gbkGenomeFileName) throws Exception
-    {
-        return new ArrayList<>();
-    }
+	public static long DNAStringToLong(String DNAString)  {
+		return 0;
+	}
+
+
+	public String longToDNAString(long sequence, int seqLength) {
+		return null;
+	}
+
+
+	public static long getComplement(long sequence, int seqLength) {
+		return 0;
+	}
 
 }
