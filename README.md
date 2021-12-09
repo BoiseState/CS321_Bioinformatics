@@ -242,9 +242,11 @@ The main Java classes should be named `GeneBankCreateBTree` and `GeneBankSearchB
 The required arguments for the two programs are shown below:
 
 ```bash
-java -jar build/libs/GeneBankCreateBTree.jar <0/1(no/with Cache)> <degree> <gbk_file> <subsequence_length> [<cache_size>] [<debug_level>]
+java -jar build/libs/GeneBankCreateBTree.jar <0/1(no/with Cache)> <degree> <gbk_file> 
+                                   <subsequence_length> [<cache_size>] [<debug_level>]
 
-java -jar build/libs/GeneBankSearchBTree.jar <0/1(no/with Cache)> <btree_file> <query_file> [<cache_size>] [<debug_level>]
+java -jar build/libs/GeneBankSearchBTree.jar <0/1(no/with Cache)> <btree_file> <query_file> 
+                                   [<cache_size>] [<debug_level>]
 ```
 
 - `<0 (no cache) | 1 (cache)>` specifies whether the program should use cache (value `1`) or
@@ -286,17 +288,17 @@ number of `BTreeNode` objects that can be stored in memory
 ### 5.2. Additional Implementation Remarks
 
 #### 5.2.1. Your programs should always keep the root node in the memory
-Write the root node to disk
-file only at the end of the program and read it in when the program starts up. In addition,
-your program can only hold a few nodes in memory. In other words, you can only use a few
-BTreeNode variables (including the root) in your program (e.g., root, parent, current, child, temporary node for split). However, using the `<1 (cache)>` option, you can store in a one-level
-cache `<cache_size>` `BTreeNode` objects.
+Write the root node to disk file only at the end of the program and read it in when the program
+starts up. In addition, your program can only hold a few nodes in memory. In other words,
+you can only use a few BTreeNode variables (including the root) in your program (e.g., root,
+parent, current, child, temporary node for split). However, using the `<1 (cache)>` option,
+you can store in a one-level cache `<cache_size>` `BTreeNode` objects.
 
 #### 5.2.2. Metadata storage
-We need to store some metadata about the B-Tree on disk. For example, we
-can store the degree of the tree, the byte offset of the root node (so we can find it), the number of
-nodes, and so on. This information could be stored in separate metadata file or it can be stored at
-the beginning of the B-Tree file.
+We need to store some metadata about the B-Tree on disk. For example, we can store the degree
+of the tree, the byte offset of the root node (so we can find it), the number of nodes, and
+so on. This information could be stored in separate metadata file or it can be stored at the
+beginning of the B-Tree file.
 
 #### 5.2.3. The B-Tree should be stored as a binary data file on the disk (and not as a text file)
 If the name of the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree
