@@ -352,11 +352,11 @@ example in the section below on how to use SQLite.
 The following examples from the class examples repository will be useful for this project.
 
 - [disk IO
-  example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples) In
+  example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples): In
   particular, look at DiskReadWriteExample.java.
 - [external binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search)
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite)
-- [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example). In particualr, look at BitwisShiftDemo.java for helpful sequence utlitiy code.
+- [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particualr, look at BitwiseShiftDemo.java for helpful sequence utlitiy code.
 
 
 ## 9. Progress Reports
