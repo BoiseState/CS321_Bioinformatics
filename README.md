@@ -356,10 +356,23 @@ The following examples from the class examples repository will be useful for thi
   particular, look at DiskReadWriteExample.java.
 - [external binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search)
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite)
-- [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particualr, look at BitwiseShiftDemo.java for helpful sequence utlitiy code.
+- [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particular, look at BitwiseShiftDemo.java for helpful sequence utility code.
+
+## 9. Testers
+
+You can run a large test on the data file `test5.gbk` as follows:
+
+```bash
+./gradlew createJarGeneBankCreateBTree
+./gradlew createJarGeneBankSearchBTree
+
+./create-btrees.sh data/test5.gbk
+./check-dumpfiles.sh test5.gbk
+./check-queries.sh test5.gbk
+```
 
 
-## 9. Progress Reports
+## 10. Progress Reports
 
 Each team member will fill out a progress report (via a survey) each week. The link to the
 survey will be posted on Piazza.
