@@ -134,6 +134,23 @@ As a warm up exercise, each team member should create a task similar to [`task #
 
 # Project Requirements
 
+
+**Table of contents:**
+- [Introduction](##introduction)
+- [Background](#background)
+- [Specifications](#specifications)
+- [Design Issues](#design-issues)
+- [Implementation](#implementation)
+- [Using a Cache](#using-a-cache)
+- [Using a Database](#using-a-database)
+- [Useful Examples](#useful-examples)
+- [Test Scripts](#test-scripts)
+- [Progress Reports](#progress-reports)
+- [Submission](#submission)
+
+
+<hr/>
+
 ## 1. Introduction
 In this assignment, we will solve a problem from the field of Bioinformatics using BTrees.
 The amount of data that we have to handle is large and any data structure is not likely to
@@ -352,7 +369,7 @@ as well.
 
 :book: Report the time improvement using a cache of size `100` and `500` in your [`README-submission.md`](/README-submission.md) file.
 
-## 7. Using a Database to store and search the results
+## 7. Using a Database 
 
 Design a simple database to store the results (sequences and frequencies) from the B-Tree.
 We will perform an inorder tree traversal to get the information to store in the database. This
@@ -382,7 +399,7 @@ The following examples from the class examples repository will be useful for thi
   quick starter example on how to set up and use SQLite.
 - [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particular, look at BitwiseShiftDemo.java for helpful sequence utility code.
 
-## 9. Testers
+## 9. Test Scripts
 
 Several test gbk files are provided in the folder: 
 [data/files_gbk](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/data/files_gbk).
@@ -461,7 +478,7 @@ Then repeat for test5.gbk.
 ## 10. Progress Reports
 
 Each team member will fill out a progress report (via a survey) each week. The link to the
-survey will be posted on Piazza.
+survey will be  provided by your instuctor.
 
 In addition, each team member should log their project-related
 activities for the week, including the URL to the tasks (e.g.,
