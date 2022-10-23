@@ -6,7 +6,7 @@ esac
 
 
 datafile=data/queries/$1
-for i in 1 2 3 4 10 20 31
+for i in 1 2 3 4 5 6 7 8 9 10 20 31
 do
 	echo
 	echo "Running queryfile " query$i "on $datafile.btree.data.$i.0"
@@ -15,7 +15,7 @@ do
 done
 echo
 
-for i in 1 2 3 4 10 20 31
+for i in 1 2 3 4 5 6 7 8 9 10 20 31
 do
 	diff -w queries/query$i-$datafile.out results/query-results/query$i-$datafile.out
 	if test "$?" = "0"
@@ -27,9 +27,4 @@ do
 
 done
 echo
-
-
-
-
-
 

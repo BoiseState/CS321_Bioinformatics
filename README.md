@@ -128,7 +128,7 @@ week, as described in the [progress reports](#9-progress-reports).
 Here is an example of a [valid task](https://github.com/BoiseState/CS321_Bioinformatics/issues/3) written in engineering language
 that is assigned to a developer. This task should be referenced by a commit containing a message similar to `Implements task #3`.
 
-As a warmup exercise, each team member should create a task similar to [`task #2`](https://github.com/BoiseState/CS321_Bioinformatics/issues/2) and then edit the [`README-submission.md`](/README-submission.md) file with their information.
+As a warm up exercise, each team member should create a task similar to [`task #2`](https://github.com/BoiseState/CS321_Bioinformatics/issues/2) and then edit the [`README-submission.md`](/README-submission.md) file with their information.
 
 <hr/>
 
@@ -335,12 +335,12 @@ The [data/queries/](data/queries/) folder contains:
 - a sample program named [`QueryGenerator.java`](data/queries/QueryGenerator.java) that
 generates random queries for testing
 
-Preferably, run your tests at home. If you do need to run them on `onyx` please only run the
+Start off by running your tests at home. If you do need to run them on `onyx` please only run the
 smallest test (`test0.gbk`).
 
 We will setup [Amazon AWS](https://aws.amazon.com/) accounts for each student so that we can
-run our larger tests in the cloud. Running your tests on AWS is required so we can all get
-experience using the cloud.
+run larger tests in the cloud. **Running your tests on AWS is required so we can all get
+experience using the cloud.**
 
 See the section on [Testers](#testers) for automated test scripts.
 
@@ -412,12 +412,17 @@ query1
 query2
 query3
 query4
+query5
+query6
+query7
+query8
+query9
 query10
 query20
 query31
 ```
 
-To generate additional queries, we can use the data/queries/QueryGenerator.java program.
+To generate additional queries, we can use the `data/queries/QueryGenerator.java` program.
 
 
 Three test scripts are provided at the top-level of the project:
@@ -434,7 +439,7 @@ Usage:  check-queries.sh  <datafile (in data/queries folder)>
 ```
 
 The `check-btrees.sh` script creates B-Trees for the given data file for strings of length 1,
-2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 16, 20, 31. The `check-dumpfules.sh` compares the dump files
+2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 31. The `check-dumpfiles.sh` compares the dump files
 from our code to the reference dump files. The `check-queries.sh` script compares the results of
 queries to our program with the reference results.
 
