@@ -1,11 +1,11 @@
 #!/bin/sh
 
 case $# in
-0) echo "Usage: " `basename $0` " <datafile> "; exit 1;;
+0) echo "Usage: " `basename $0` " <datafile (in data/queries folder)> "; exit 1;;
 esac
 
 
-datafile=$1
+datafile=data/queries/$1
 for i in 1 2 3 4 10 20 31
 do
 	echo
@@ -17,7 +17,7 @@ echo
 
 for i in 1 2 3 4 10 20 31
 do
-	diff -w queries/query$i-$datafile.out results/queries/query$i-$datafile.out
+	diff -w queries/query$i-$datafile.out results/query-results/query$i-$datafile.out
 	if test "$?" = "0"
 	then
 		echo "----> Query-Test-$i PASSED!"
