@@ -136,17 +136,17 @@ As a warm up exercise, each team member should create a task similar to [`task #
 
 
 **Table of contents:**
-- [Introduction](##introduction)
-- [Background](#background)
-- [Specifications](#specifications)
-- [Design Issues](#design-issues)
-- [Implementation](#implementation)
-- [Using a Cache](#using-a-cache)
-- [Using a Database](#using-a-database)
-- [Useful Examples](#useful-examples)
-- [Test Scripts](#test-scripts)
-- [Progress Reports](#progress-reports)
-- [Submission](#submission)
+- [Introduction](#1-introduction)
+- [Background](#2-background)
+- [Specifications](#3-specifications)
+- [Design Issues](#4-design-issues)
+- [Implementation](#5-implementation)
+- [Using a Cache](#6-using-a-cache)
+- [Using a Database](#7-using-a-database)
+- [Useful Examples](#8-useful-examples)
+- [Test Scripts](#9-test-scripts)
+- [Progress Reports](#10-progress-reports)
+- [Submission](#11-submission)
 
 
 <hr/>
@@ -493,7 +493,7 @@ It is expected that each team should have at least one meeting every week.
 
 Progress reports are confidential.
 
-## 10. Submission
+## 11. Submission
 Before submission, make sure that you:
 - can clone the team repository on the `onyx` server
 - can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results
