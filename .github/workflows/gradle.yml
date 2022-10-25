@@ -6,7 +6,9 @@
 # - Java 11 (LTS)
 # - Java 15 (deprecated)
 # - Java 16 (deprecated)
-# - Java 17 (LTS; current; officially supported since Gradle 7.3)
+# - Java 17 (LTS; officially supported since Gradle 7.3)
+# - Java 18 (deprecated; officially supported since Gradle 7.5)
+# - Java 19 (current; not officially supported by Gradle)
 name: CS321 Bioinformatics CI with Gradle
 
 on:
@@ -22,7 +24,7 @@ jobs:
 
     strategy:
       matrix:
-        java: [ '8', '11', '15', '16', '17' ]
+        java: [ '8', '11', '15', '16', '17', '18' ]
     name: Java version ${{ matrix.Java }}
 
     steps:
