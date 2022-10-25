@@ -26,6 +26,19 @@ cannot have its own GitHub issues, which will be used as Scrum tasks.
 :heavy_exclamation_mark: **NOTE: Do NOT modify the package structure in the [src/](src/) folder**,
 otherwise the project may not be built correctly using gradle.
 
+## Ensure you have the correct JDK version
+Use the following command to check your JDK version installed:
+```bash
+$ javac -version
+```
+
+This project **does not work** with JDK 19.
+
+Instead it is recommended to use either JDK 8, JDK 11 or JDK 17.
+
+:book: See this [wiki page for additional details regarding the supported Java versions and links to download the correct JDK versions](https://github.com/BoiseState/CS321_Bioinformatics/wiki/Install-the-correct-JDK-version).
+
+
 ## One-Time Team Setup
 One team member should:
 - Create a new **private** GitHub repository and
@@ -80,16 +93,31 @@ $ java -jar build/libs/GeneBankSearchBTree.jar <arguments>
 ```
 
 
-## Eclipse Project
+## Run the project from an IDE: IntelliJ IDEA, VSCode or Eclipse
+### Eclipse
 This repository is an [Eclipse](https://www.eclipse.org/) project, and can be directly opened in
-[Eclipse](https://www.eclipse.org/) (e.g., `File -> Open Projects from File System...`).
+[Eclipse](https://www.eclipse.org/).
 
-However, it can be imported into [IntelliJ IDEA](https://www.jetbrains.com/idea/) or other IDEs.
+:book: See this [wiki page for additional instructions to run this project in Eclipse](https://github.com/BoiseState/CS321_Bioinformatics/wiki/Instructions-to-run-in-Eclipse).
 
-Note that you can add as many classes in the src/main/java as you want, and gradle should build
-them automatically. In other words, the you should not have to make any changes to build.gradle.
-Also, you can add new test files with new tests cases in src/test/java and those will be run
-automatically by gradle or IntelliJ.
+### IntelliJ IDEA
+This project can be opened with [IntelliJ IDEA](https://www.jetbrains.com/idea/).
+
+:bulb: HINT: As a student, you can get [IntelliJ IDEA](https://www.jetbrains.com/idea/) for free ([using an academic license](https://www.jetbrains.com/community/education/#students)) by signing up with your BSU email.
+
+:book: See this [wiki page for additional instructions to run this project in IntelliJ IDEA](https://github.com/BoiseState/CS321_Bioinformatics/wiki/Instructions-to-run-in-IntelliJ-IDEA).
+
+### VSCode
+Alternatively, this project can be opened with [VSCode](https://code.visualstudio.com/).
+
+:book: See this [wiki page for detailed instructions to run this project in VSCode](https://github.com/BoiseState/CS321_Bioinformatics/wiki/Instructions-to-run-in-VSCode).
+
+## Notes for creating additional files and tests, while keeping the Gradle project structure
+You can add as many classes as you want in `src/main/java`, and gradle should build
+them automatically. In other words, you should not have to make any changes to the `build.gradle`.
+
+Also, you can add new test files with new tests cases in `src/test/java` and those will be run
+automatically by gradle or your IDE.
 
 <hr/>
 
