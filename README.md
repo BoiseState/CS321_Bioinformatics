@@ -11,10 +11,10 @@
 This repository contains:
 - the expected project package structure, in the [src/](src/) folder
 - some partial implementation of classes, in the [src/main/java/cs321/](src/main/java/cs321/) folder
-- sample [jUnit](https://junit.org/) tests, in the [src/test/java/cs321/](src/test/java/cs321/) folder
+- sample [JUnit](https://junit.org/) tests, in the [src/test/java/cs321/](src/test/java/cs321/) folder
 - sample input data and expected results, in the [data/](data/) folder
 - a wrapper for the [gradle](https://gradle.org/) build tool, which simplifies installing and running gradle. In turn, gradle facilitates and handles:
-    - Java library (e.g., jUnit) dependency management
+    - Java library (e.g., JUnit) dependency management
     - Compiling the code
     - Generating self-containing jars
     - Running classes
@@ -75,7 +75,7 @@ The other team members should then clone the newly created student repository co
 ## Compile and Run the Project from the Command Line
 Gradle allows running unit tests and code from IDEs, or the command line, as described below.
 
-Run all the jUnit tests and print a summary of the results:
+Run all the JUnit tests and print a summary of the results:
 ```bash
 $ ./gradlew test
 ```
