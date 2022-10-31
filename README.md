@@ -418,11 +418,11 @@ example in the section below on how to use SQLite.
 
 The following examples from the class examples repository will be useful for this project.
 
-- [disk IO
+- [Disk IO
   example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples): In
   particular, look at DiskReadWriteExample.java. It shows the implementation of an external binary
   search tree on disk.
-- [external binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search): Show show to run binary search on a file consisting of objects that are sorted.
+- [External binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search): Show show to run binary search on a file consisting of objects that are sorted.
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite): A
   quick starter example on how to set up and use SQLite.
 - [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particular, look at BitwiseShiftDemo.java for helpful sequence utility code.
@@ -440,12 +440,13 @@ test2.gbk
 test3.gbk
 test4.gbk
 test5.gbk
-hs_ref_chrY.gbk
 ```
 
-Note that the last test file is the Y chromosome for human beings. That is a large file (but the
-smallest of all chromosomes!). To run your program on this file is optional as it may take a long
-time!! For this test, we recommend a cache size of 10,000 nodes.
+An optional large test file is the Y chromosome for human beings. That is a large file (but
+the smallest of all chromosomes!). To run your program on this file is optional as it may take
+a long time!! For this test, we recommend a cache size of 5,000 nodes. Note this file isan't
+available on GitHub due to their limitation on file size. You can download it from here:
+[hs_ref_chrY.gbk](https://drive.google.com/file/d/1zkAIQW8ol7HxGxNBeJTSuwES7EqPYiHx/view?usp=sharing)
 
 
 Several pre-generated query files are provided in the folder: 
@@ -524,7 +525,7 @@ Progress reports are confidential.
 ## 11. Submission
 Before submission, make sure that you:
 - can clone the team repository on the `onyx` server
-- can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results
+- can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results (just try test0.gbk)
 
 **One team member should email the URL of the team GitHub repository to the instructor and the teaching
 assistant(s).**
