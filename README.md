@@ -527,6 +527,8 @@ Before submission, make sure that you:
 - can clone the team repository on the `onyx` server
 - can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results (just try test0.gbk)
 
+-submit on onyx if your instructor requires a submission
+
 **One team member should email the URL of the team GitHub repository to the instructor and the teaching
 assistant(s).**
 
