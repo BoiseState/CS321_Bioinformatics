@@ -422,7 +422,6 @@ The following examples from the class examples repository will be useful for thi
   example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples): In
   particular, look at DiskReadWriteExample.java. It shows the implementation of an external binary
   search tree on disk.
-- [External binary search](https://github.com/BoiseState/CS321-resources/tree/master/examples/external-binary-search): Show show to run binary search on a file consisting of objects that are sorted.
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite): A
   quick starter example on how to set up and use SQLite.
 - [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particular, look at BitwiseShiftDemo.java for helpful sequence utility code.
