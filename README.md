@@ -150,13 +150,20 @@ Review/QA       | Tasks ready to be reviewed by another team member
 Closed          | Completed tasks, whose corresponding code is integrated in the `master` branch
 
 Tasks should be assigned to the developer working on them. Each team
-member should add to the project log file, Project-Log.md, the tasks (e.g., `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
+member should add to the project log file, Project-Log.md, the tasks (e.g.,
+`https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
 week, as described in the [progress reports](#9-progress-reports).
 
-Here is an example of a [valid task](https://github.com/BoiseState/CS321_Bioinformatics/issues/3) written in engineering language
-that is assigned to a developer. This task should be referenced by a commit containing a message similar to `Implements task #3`.
+Here is an example of a [valid task](https://github.com/BoiseState/CS321_Bioinformatics/issues/3)
+written in engineering language that is assigned to a developer. This task should be referenced
+by a commit containing a message similar to `Implements task #3`.
 
-As a warm up exercise, each team member should create a task similar to [`task #2`](https://github.com/BoiseState/CS321_Bioinformatics/issues/2) and then edit the [`README-submission.md`](/README-submission.md) file with their information.
+As a warm up exercise, each team member should create a task similar to [`task
+#2`](https://github.com/BoiseState/CS321_Bioinformatics/issues/2) and then edit the
+[`README-submission.md`](/README-submission.md) file with their information.
+
+Here is a sample project log from a team from a previous semester:
+[Project-Log-sample.md](https://github.com/BoiseState/CS321_Bioinformatics/Project-Log-sample.d)
 
 <hr/>
 
