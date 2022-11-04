@@ -163,7 +163,7 @@ As a warm up exercise, each team member should create a task similar to [`task
 [`README-submission.md`](/README-submission.md) file with their information.
 
 Here is a sample project log from a team from a previous semester:
-[Project-Log-sample.md](https://github.com/BoiseState/CS321_Bioinformatics/Project-Log-sample.d)
+[Project-Log-sample.md](https://github.com/BoiseState/CS321_Bioinformatics/Project-Log-sample.md)
 
 <hr/>
 
