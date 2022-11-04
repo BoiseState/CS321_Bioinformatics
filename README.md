@@ -481,19 +481,20 @@ Three test scripts are provided at the top-level of the project:
 
 ```bash
 ./create-btrees.sh 
-Usage:  create-btrees.sh  <datafile (in data/files_gbk folder)> 
+Usage:  create-btrees.sh  <datafile> 
 
 ./check-dumpfiles.sh 
-Usage:  check-dumpfiles.sh  <datafile (in data/files_gbk folder)> 
+Usage:  check-dumpfiles.sh  <datafile> 
 
 ./check-queries.sh 
-Usage:  check-queries.sh  <datafile (in data/queries folder)> 
+Usage:  check-queries.sh  <datafile> 
 ```
 
-The `check-btrees.sh` script creates B-Trees for the given data file for strings of length 1,
-2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 31. The `check-dumpfiles.sh` compares the dump files
-from our code to the reference dump files. The `check-queries.sh` script compares the results of
-queries to our program with the reference results.
+Please note that the scripts require the name of the test file and then it will add the
+appropriate path to the name to fnd it.  The `check-btrees.sh` script creates B-Trees for the given
+data file for strings of length 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 31. The `check-dumpfiles.sh`
+compares the dump files from our code to the reference dump files. The `check-queries.sh`
+script compares the results of queries to our program with the reference results.
 
 The results are provided for test0.gbk and test5.gbk data files. You can use the test scripts
 to run and compare results using the three test scripts as follows.
@@ -502,7 +503,7 @@ to run and compare results using the three test scripts as follows.
 ./gradlew createJarGeneBankCreateBTree
 ./gradlew createJarGeneBankSearchBTree
 
-./create-btrees.sh data/test0.gbk
+./create-btrees.sh test0.gbk
 ./check-dumpfiles.sh test0.gbk
 ./check-queries.sh test0.gbk
 ```
@@ -519,6 +520,9 @@ In addition, each team member should log their project-related
 activities for the week, including the URL to the tasks (e.g.,
 `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
 week, in a separate file named `Project-Log.md`.
+
+Here is a sample log file:
+[Project-log-sample.md](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/Project-log-sample.md)
 
 As a reminder, each commit should link (reference) in the commit message the completed task
 (e.g., `Implements task #123`), in order to automatically link the task to the commit, and make
