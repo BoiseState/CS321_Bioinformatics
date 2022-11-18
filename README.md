@@ -309,6 +309,9 @@ java -jar build/libs/GeneBankSearchBTree.jar --cache=<0/1> --degree=<btree degre
 
 **Note that the arguments can be provided in any order.**
 
+If the name of the GeneBank file is xyz.gbk, the subsequence length is <k> and the B-Tree degree
+is <t>, then the name of the B-Tree file should be xyz.gbk.btree.data.<k>.<t>.
+
 - `<0 (no cache) | 1 (cache)>` specifies whether the program should use cache (value `1`) or
 no cache (value `0`); if the value is `1`, the `<cache_size>` has to be specified
 
