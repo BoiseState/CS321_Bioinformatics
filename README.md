@@ -299,12 +299,12 @@ The required arguments for the two programs are shown below:
 
 ```bash
 java -jar build/libs/GeneBankCreateBTree.jar --cache=<0|1>  --degree=<btree degree> 
-	--gbkfile=<gbk file> --length=<sequence length> [--cachesize=<n>] [--debug=0|1|2|3]
+	--gbkfile=<gbk file> --length=<sequence length> [--cachesize=<n>] [--debug=0|1|2]
 
 
 java -jar build/libs/GeneBankSearchBTree.jar --cache=<0/1> --degree=<btree degree> 
 	--btreefile=<BTree file> --length=<sequence length> --queryfile=<query file> 
-	[--cachesize=<n>] [--debug=0|1|2]
+	[--cachesize=<n>] [--debug=0|1]
 ```
 
 **Note that the arguments can be provided in any order.**
@@ -339,6 +339,8 @@ number of `BTreeNode` objects that can be stored in memory
 
         - `0`: The output of the queries should be printed on the standard output stream. Any diagnostic messages, help and status messages must be be printed on standard error stream.
 
+		- '1': The program displays more verbose messages. For example, it can show details of each search process.
+
     - It must support at least the following values for `GeneBankCreateBTree`:
 
         - `0`: Any diagnostic messages, help and status messages must be be printed on standard error stream.
@@ -348,6 +350,7 @@ number of `BTreeNode` objects that can be stored in memory
 ```bash
 <DNA string> <frequency>
 ```
+		- '2': The program displays more verbose messages. For example, it can show details of each insertion.
 
 ### 5.2. Additional Implementation Remarks
 
