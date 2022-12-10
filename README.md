@@ -237,17 +237,20 @@ The GeneBank files have a bunch of annotations followed by the keyword `ORIGIN`.
 sequences start from the next line. Each line has 60 characters (one of `A`, `T`, `C`, `G`, could
 be lower/upper case) until the end of sequence, which is denoted by `//` on a line by itself.
 Sometimes you will see the character `N`, which denotes that the sequence is not known at
-that character. You would skip these characters. One GeneBank file may have several DNA
-sequences in it, each marked by `ORIGIN` and `//` tags.
+that character. You would skip these characters as described below. 
 
-When we reach a character `N`, we assume that the sequence has ended. Similarly, when
-we reach `//`, we also assume that the sequence has ended. So at those points, we reset
-the sequence that we were building and start over when we find the next `ORIGIN` or the
-next valid character after seeing a `N`.
+When we reach a character `N`, we assume that the sequence has ended. Similarly, when we reach
+`//`, we also assume that the sequence has ended. So at those points, we reset the sequence
+that we were building and start over when we find the next valid character after seeing a `N`
+or when we find the next `ORIGIN` tag.
+
+One GeneBank file may have several DNA
+sequences in it, each marked by `ORIGIN` and `//` tags.
 
 Some sample genome files (having the *.gbk extension) can be found in the [data/files_gbk/](data/files_gbk/) folder.
 
 ### 3.2. Problem
+
 For a given GeneBank file, we want to convert it into a BTree with each object being a
 DNA subsequence of specified length `k` (where `1` ≤ `k` ≤ `31`). We will take the DNA sequence
 from the GeneBank file and break it into subsequences of length `k` each. We are interested in
