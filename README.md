@@ -644,11 +644,11 @@ run the smallest test (`test0.gbk`) to avoid overloading the `onyx` server.
 
 We will setup [Amazon AWS](https://aws.amazon.com/) accounts for each student so that you can run
 larger tests in the cloud. **Running our tests on AWS is required so we can all get experience
-using the cloud.** :cloud:
+using the cloud.** :cloud: :-)
 
 Please see the [AWS
 notes](https://docs.google.com/document/d/1v5a0XlzaNyi63TXXKP4BQsPIdJt4Zkxn2lZofVP8qqw/edit?usp=sharing)
-for a step by step guide on running your project on the AWS cloud. :cloud:
+for a step by step guide on running your project on the AWS cloud. 
 
 ## 11. Progress Reports
 
