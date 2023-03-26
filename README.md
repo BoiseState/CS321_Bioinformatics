@@ -288,15 +288,15 @@ The biological motivation for the problem is to study the frequency of different
 subsequences to see if they are random or that some subsequences are more likely to be found
 in the DNA.
 
-For a given GeneBank file, we want to ==convert it into a BTree with each object being a DNA
-subsequence of specified length `k` (where `1` ≤ `k` ≤ `31`)==. We will take the DNA sequence
+For a given GeneBank file, we want to *convert it into a BTree with each object being a DNA
+subsequence of specified length `k` (where `1` ≤ `k` ≤ `31`)* We will take the DNA sequence
 from the GeneBank file and break it into subsequences of length `k` each and insert them into
 a BTree. Each subsequence will act as a key. We are interested in all subsequences with length
 `k`. For example, in the sequence `AATTCG`, the subsequences of length three are: `AAT`, `ATT`,
 `TTC` and `TCG`.
 
-Once we have a BTree for a length `k`, we want to be able to ==search for query subsequences of
-length `k`==. The search returns the frequency of occurrence of the query string (which can be
+Once we have a BTree for a length `k`, we want to be able to *search for query subsequences of
+length `k`*. The search returns the frequency of occurrence of the query string (which can be
 zero if it is not found). 
 
 We will also create a SQL database (for a specific length `k`) of subsequences and their
@@ -320,8 +320,8 @@ C, G). We have included the Unicode values so we can see that it takes 8 times m
 | C        | 01           | 100               | 0000 0000 0110 0100 |
 | G        | 10           | 103               | 0000 0000 0110 0111 |
 
-Note that we have made the binary representations for complementary bases be binary
-complements as well. For example, complement of the base `A` is `T` --- the complement of `00` is `11`.  
+Note that we have made the binary representations for complementary bases be binary complements
+as well. For example, complement of the base `A` is `T` --- the complement of `00` is `11`.
 
 With this compact representation, we can store a 31 length subsequence in a 64-bit `long`
 primitive type in Java.
@@ -335,8 +335,8 @@ which can hold up to 31 2-bit binary codes (e.g., 00 for A, etc), using up 62 bi
 run out of space to add another 2-bit representation of a DNA base.
 
 ### 4.2. Key Values
-Note that the binary compact representation of the subsequences will result
-in a unique 64-bit integer value. Hence we can directly use that as our key value.
+Note that the binary compact representation of the subsequences will result in a unique 64-bit
+integer value. Hence we can directly use that as our key value.
 
 ### 4.3. Class Design
 We will need a `BTree` class as well as a `BTreeNode` class. The objects that we store in the
