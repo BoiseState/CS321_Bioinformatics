@@ -466,11 +466,16 @@ information. This information should be stored at the beginning of the B-Tree fi
 metadata when we open the B-Tree file and we write it back (as it may have changed) when we close
 the B-Tree file at the end of the program.
 
-#### 5.2.3. The B-Tree should be stored as a binary data file on the disk (and not as a text file)
+#### 5.2.3. Layout of the B-Tree in the binary file 
 
 The B-Tree is stored as a binary file on disk. This is the most efficient and compact way to
 store the B-Tree data structure so it persists beyond the program. While it is possible to
 store the B-Tree as a text file, it will lead to severe slowdown in the runtime.
+
+The BTree data file will have an initial metadata section. The metadata section should contain
+at least the byte offset of the root node. It may also optionally contain the degree of the
+BTree and the number of nodes.  After the metadata, the rest of the file consists of BTreeNodes
+laid out one after the other. A new node is added to the end of the file.
 
 If the name of the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree
 degree is `<t>`, then the name of the B-Tree file should be `xyz.gbk.btree.data`.`<k>.<t>`.
@@ -478,7 +483,25 @@ degree is `<t>`, then the name of the B-Tree file should be `xyz.gbk.btree.data`
 :book: Describe the layout of the B-Tree file on disk as well as any other relevant observations
 in the [`README-submission.md`](/README-submission.md) file.
 
-#### 5.2.4 To query for a subsequence, we also query for its complement
+#### 5.2.4 Reading and Writing Nodes
+
+- We will read/write one BTreeNode at a time. If the degree `<t>` is small, this would be
+inefficient. In a real-life case we would set the degree `<t>` such that a BTreeNode fits one
+disk block (we are using 4096 bytes for the disk block size) as close as possible with some
+empty padding space at the end (if needed).
+
+- We will store the byte offset of a node on disk as the child pointers in the BTreeNodes. Note
+that we never need real child pointers in memory.
+
+- We will use RandomAccessFile  and FileChannel classes to read/write to the BTree
+data file. This allows us to quickly set the file cursor to anywhere in the file
+in O(1) time using the `position(long pos)` method. We will use the ByteBuffer
+class to read/write to the BTree data file.  Please see the example of writing to
+a random access binary data file shown in DiskReadWriteExample.java in the [Disk IO
+example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples)
+folder in CS321-resources repo.
+
+#### 5.2.5 To query for a subsequence, we also query for its complement
 
 Note that our BTree stores only one side of the DNA strand but there is a complementary strand
 as well. This implies that when we search for a subsequence, we also need to search for its
