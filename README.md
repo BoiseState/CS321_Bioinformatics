@@ -480,15 +480,12 @@ laid out one after the other. A new node is added to the end of the file.
 If the name of the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree
 degree is `<t>`, then the name of the B-Tree file should be `xyz.gbk.btree.data`.`<k>.<t>`.
 
-:book: Describe the layout of the B-Tree file on disk as well as any other relevant observations
-in the [`README-submission.md`](/README-submission.md) file.
-
 #### 5.2.4 Reading and Writing Nodes
 
 - We will read/write one BTreeNode at a time. If the degree `<t>` is small, this would be
-inefficient. In a real-life case we would set the degree `<t>` such that a BTreeNode fits one
-disk block (we are using 4096 bytes for the disk block size) as close as possible with some
-empty padding space at the end (if needed).
+inefficient. To improve efficient, we should set the degree `<t>` to an **optimum** value such
+that a BTreeNode fits one disk block (we are using 4096 bytes for the disk block size) as close
+as possible with some empty padding space at the end (if needed).
 
 - We will store the byte offset of a node on disk as the child pointers in the BTreeNodes. Note
 that we never need real child pointers in memory.
@@ -496,10 +493,11 @@ that we never need real child pointers in memory.
 - We will use RandomAccessFile  and FileChannel classes to read/write to the BTree
 data file. This allows us to quickly set the file cursor to anywhere in the file
 in O(1) time using the `position(long pos)` method. We will use the ByteBuffer
-class to read/write to the BTree data file.  Please see the example of writing to
-a random access binary data file shown in DiskReadWriteExample.java in the [Disk IO
+class to read/write to the BTree data file.  Please see the example of writing
+to a random access binary data file shown in DiskReadWrite.java in the [Disk IO
 example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples)
-folder in CS321-resources repo.
+folder in CS321-resources repo. This example shows a complete binary search tree as an external
+data structure in a binary file on disk.
 
 #### 5.2.5 To query for a subsequence, we also query for its complement
 
@@ -540,16 +538,18 @@ Using a cache sped up the execution by a factor of 9.37! Using a cache will also
 larger BTrees. The `test5.gbk` BTree isn't large enough because a search only takes $\Theta(lg n)$
 time!
 
-We were able to run the full human Y chromosome (`data/files_gbk/hs_ref_chrY.gbk) in about 14
-minutes using a cache of size 10,000. With a cahce of size 100,000 (about 400 MB of memory), we were
-able to bring the time to create the BTree down to only 2m19s.
+We were able to create a B-Tree for the full human Y chromosome (`data/files_gbk/hs_ref_chrY.gbk`)
+in about 14 minutes using a cache of size 10,000. With a cache of size 100,000 (about 400 MB
+of memory), we were able to bring the time to create the BTree down to only 2m19s.
 
 ## 7. Using a Database 
 
 Design a simple database to store the results (sequences and frequencies) from the B-Tree.
 We will perform an inorder tree traversal to get the information to store in the database. This
 would be done at the end of creating the GeneBank BTree. Then we will create a separate search
-program named `GeneBankSearchDatabase` that uses the database instead of the BTree.
+program named `GeneBankSearchDatabase` that uses the database instead of the BTree. This is
+a common pattern in real life applications, where we may crunch lots of data using a data
+structure and then store the results in a database for ease of access.
 
 ```bash
 $ ./gradlew createJarGeneBankSearchDatabase
@@ -566,11 +566,13 @@ example in the section below on how to use SQLite.
 The following examples from the class examples repository will be useful for this project.
 
 - [Disk IO example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples): In
-  particular, look at DiskReadWriteExample.java. It shows the implementation of an external binary
+  particular, look at DiskReadWrite.java. It shows the implementation of an external binary
   search tree on disk.
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite): A
   quick starter example on how to set up and use SQLite.
-- [Bitwise operators example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example): In particular, look at SequenceUtils.java for helpful sequence utility code. A copy of this
+- [Bitwise operators
+example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example):
+In particular, look at SequenceUtils.java for helpful sequence utility code. A copy of this
 has also been provided in the starter code for the project.
 
 ## 9. Test Scripts
@@ -642,7 +644,7 @@ run the smallest test (`test0.gbk`) to avoid overloading the `onyx` server.
 
 We will setup [Amazon AWS](https://aws.amazon.com/) accounts for each student so that you can run
 larger tests in the cloud. **Running our tests on AWS is required so we can all get experience
-using the cloud.**
+using the cloud.** :cloud:
 
 Please see the [AWS
 notes](https://docs.google.com/document/d/1v5a0XlzaNyi63TXXKP4BQsPIdJt4Zkxn2lZofVP8qqw/edit?usp=sharing)
@@ -671,6 +673,7 @@ Progress reports are confidential.
 
 ## 12. Submission
 Before submission, make sure that you:
+- make sure that your README-submission.md file is complete!
 - can clone the team repository on the `onyx` server
 - can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results (just try test0.gbk)
 - run the [test scripts](#9-test-scripts)
