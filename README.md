@@ -549,16 +549,6 @@ has also been provided in the starter code for the project.
 Several test gbk files are provided in the folder: 
 [data/files_gbk](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/data/files_gbk).
 
-These include:
-```bash
-test0.gbk
-test1.gbk
-test2.gbk
-test3.gbk
-test4.gbk
-test5.gbk
-```
-
 An optional large test file is the Y chromosome for human beings. That is a large file (but
 the smallest of all chromosomes!). To run our program on this file is optional as it may take
 a long time!! For this test, we recommend a cache size of 10,000 nodes. Note that this file
@@ -568,27 +558,17 @@ isn't available on GitHub due to their limitation on file size. You can download
 
 Several pre-generated query files are provided in the folder: 
 [data/queries](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/data/queries).
-
-In particular, results are provided for the following sample query files. 
-```bash
-query1
-query2
-query3
-query4
-query5
-query6
-query7
-query8
-query9
-query10
-query20
-query31
-```
-
 To generate additional queries, we can use the `data/queries/QueryGenerator.java` program.
 
+The expected dump files and query results are provided  for `test0.gbk` and `test5.gbk` in the folders:
+[results/dumpfiles](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/results/dumpfiles),
+[results/query-results](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/results/query-results)
 
-Three test scripts are provided at the top-level of the project (for intergration testing):
+In particular, results are provided for query1,..., query10, query20, and query31 query files
+for `test0.gbk` and `test5.gbk` GeneBank files.
+
+Three test scripts are provided at the top-level of the project (for intergration testing). These
+compare your results to the results files mentioed above.
 
 ```bash
 ./create-btrees.sh 
