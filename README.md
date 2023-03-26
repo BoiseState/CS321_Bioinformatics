@@ -555,6 +555,10 @@ a long time!! For this test, we recommend a cache size of 10,000 nodes. Note tha
 isn't available on GitHub due to their limitation on file size. You can download it from here:
 [hs_ref_chrY.gbk](https://drive.google.com/file/d/1zkAIQW8ol7HxGxNBeJTSuwES7EqPYiHx/view?usp=sharing)
 
+If you want to compare your dumpfiles for the Y chromosome,
+you can download our dump files from here: [hs_ref_chrY
+dumpfiles](https://drive.google.com/drive/folders/1PcKafuaB3NkqQTWLVEYtDTscjwVbOxeR?usp=share_link).
+
 
 Several pre-generated query files are provided in the folder: 
 [data/queries](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/data/queries).
@@ -564,7 +568,7 @@ The expected dump files and query results are provided  for `test0.gbk` and `tes
 [results/dumpfiles](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/results/dumpfiles),
 [results/query-results](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/results/query-results)
 
-In particular, results are provided for query1,..., query10, query20, and query31 query files
+In particular, results are provided for `query1`,..., `query10`, `query20`, and `query31` query files
 for `test0.gbk` and `test5.gbk` GeneBank files.
 
 Three test scripts are provided at the top-level of the project (for intergration testing). These
@@ -599,7 +603,7 @@ to run and compare results using the three test scripts as follows.
 ./check-queries.sh test0.gbk
 ```
 
-Then, repeat for `test5.gbk`.   The instructors will use these test scripts for the final testing of
+Then, repeat for `test5.gbk`.  The instructors will use these test scripts for the final testing of
 your project.
 
 
