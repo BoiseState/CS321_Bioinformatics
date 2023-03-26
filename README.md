@@ -332,7 +332,7 @@ explained as follows. The long type has 8 bytes or 64 bits to represent integers
 -9,223,372,036,854,775,808 and 9,223,372,036,854,775,807.  The first bit is been reserved for
 the sign (+ or -) of the number and thus the effective number of bits for storing data is 63,
 which can hold up to 31 2-bit binary codes (e.g., 00 for A, etc), using up 62 bits and then we
-run out of space.
+run out of space to add another 2-bit representation of a DNA base.
 
 ### 4.2. Key Values
 Note that the binary compact representation of the subsequences will result
