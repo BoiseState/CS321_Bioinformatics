@@ -1,4 +1,6 @@
 
+import cs321.common.DNA;
+
 /**
  * A utility class that provides methods to encode a DNA string into a long, decode
  * from the long back to a DNA string, and get the complement of a DNA string encoded 
