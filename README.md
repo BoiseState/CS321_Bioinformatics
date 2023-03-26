@@ -1,11 +1,22 @@
 # CS 321 Bioinformatics Project
 
 **Table of contents:**
+- [Learning Objectives](#learning-objectives)
 - [Starter Code](#starter-code)
 - [Scrum Process](#scrum-process)
 - [Project Requirements](#project-requirements)
 
 <hr/>
+
+# Learning Objectives
+
+- Develop a complex project in a team by applying good software engineering practices such as  agile development, version control, and data persistence along with testing and code instrumentation.
+- Demonstrate effective teamwork as a member or a leader of a team.
+- Design, implement, and evaluate a computing-based solution to a given set of computing requirements for a problem from a specific domain.
+- Learn how to implement a BTree external data structure on the disk.
+- Demonstrate  how to use caching to improve performance of an application.
+- Understand how bitwise operators reduce the memory footprint of data.
+- Learn how to run an application in the cloud.
 
 # Starter Code
 This repository contains:
