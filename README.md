@@ -673,7 +673,7 @@ Progress reports are confidential.
 
 ## 12. Submission
 Before submission, make sure that you:
-- make sure that your README-submission.md file is complete!
+- make sure that your `README-submission.md` file is complete!
 - can clone the team repository on the `onyx` server
 - can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results (just try test0.gbk)
 - run the [test scripts](#9-test-scripts)
