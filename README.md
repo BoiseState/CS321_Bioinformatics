@@ -679,7 +679,4 @@ Before submission, make sure that you:
 - run the [test scripts](#9-test-scripts)
 - submit on onyx 
 
-**One team member should email the URL of the team GitHub repository to the instructor and the teaching
-assistant(s).**
-
 Make sure the [instructor and the teaching assistant(s) have access to the repository](#one-time-team-setup).
