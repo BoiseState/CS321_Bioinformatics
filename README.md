@@ -370,25 +370,20 @@ The main Java classes should be named `GeneBankCreateBTree`, `GeneBankSearchBTre
 The required arguments for the three programs are shown below:
 
 ```bash
-java -jar build/libs/GeneBankCreateBTree.jar --cache=<0|1>  --degree=<btree-degree> 
-	--gbkfile=<gbk-file> --length=<sequence-length> [--cachesize=<n>] [--debug=0|1]
+java -jar build/libs/GeneBankCreateBTree.jar --degree=<btree-degree> --gbkfile=<gbk-file> 
+          --length=<sequence-length> [--cachesize=<n>] [--debug=0|1]
 
 
-java -jar build/libs/GeneBankSearchBTree.jar --cache=<0/1> --degree=<btree-degree> 
-	--btreefile=<b-tree-file> --length=<sequence-length> --queryfile=<query-file> 
-	[--cachesize=<n>] [--debug=0|1]
+java -jar build/libs/GeneBankSearchBTree.jar --degree=<btree-degree> --btreefile=<b-tree-file> 
+          --length=<sequence-length> --queryfile=<query-file> [--cachesize=<n>] [--debug=0|1]
 
-java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-path> 
-      --queryfile=<query-file>
+java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-path> --queryfile=<query-file>
 ```
 
 **Note that the arguments can be provided in any order.**
 
 If the name of the GeneBank file is `xyz.gbk`, the subsequence length is <k> and the B-Tree degree
 is <t>, then the name of the B-Tree file should be `xyz.gbk.btree.data.<k>.<t>`
-
-- `<cache>` specifies whether the program should use cache (value `1`) or
-no cache (value `0`); if the value is `1`, the `<cache-size>` has to be specified
 
 - `<degree>` is the degree to be used for the B-Tree. If the user specifies `0`, then our
 program should choose the optimum degree based on a disk block size of `4096` bytes and the
@@ -405,8 +400,9 @@ to search for in the specified B-Tree file. The strings are one per line and the
 have the same length as the DNA subsequences in the B-Tree file. The DNA strings use `A`, `C`,
 `T`, and `G` (either lower or upper case)
 
-- `[<cache-size>]` is an integer between `100` and `10000` (inclusive) that represents the
-maximum number of `BTreeNode` objects that can be stored in memory
+- `[<cache-size>]` is an optional integer argument between `0` and `10000` (inclusive) that
+represents the maximum number of `BTreeNode` objects that can be stored in memory. A cache size
+of zero means no cache is used. The default value is zero.
 
 - `<SQLite-database-path>` the path to the SQL database created after BTree creation for a
   specific sequence length. The name of the database file should be `xyz.k.db` where the sequence
@@ -515,8 +511,7 @@ to get the result.
 ## 6. Using a Cache
 We will incorporate the generic Cache class from `Project 1` to improve the performance of
 our B-Tree implementation. The size of the cache should be a command line argument. An entry
-in the cache is a `BTreeNode`. With the cache enabled command line option, the `<cache-size>`
-needs to be specified as well.
+in the cache is a `BTreeNode`. 
 
 :book: Report the time improvement for sequences of length 20 on `test5.gbk` using a cache of size
 `100`, `500`, `1000`, `5000`, and `10,000` in your [`README-submission.md`](/README-submission.md)
@@ -525,14 +520,14 @@ file.
 For example, the table below shows the improvement the instructors got on their solution. Note that
 your times will be different due to different hardware and differences in the implementation.
 
-| gbk file | degree | sequence length | cache | cache size | cache hit rate | run time |
-| -------- | ------ | --------------- | ----- | ---------- | -------------- | -------- |
-| test5.gbk|  102   |     20          |  no   |    0       |      0%        |  29.52s  |
-| test5.gbk|  102   |     20          |  yes  |    100     |      66.14%    |  12.56s  |
-| test5.gbk|  102   |     20          |  yes  |    500     |      77.84%    |  10.22s  |
-| test5.gbk|  102   |     20          |  yes  |    1000    |      81.45%    |  10.05s  |
-| test5.gbk|  102   |     20          |  yes  |    5000    |      95.08%    |   5.08s  |
-| test5.gbk|  102   |     20          |  yes  |    10000   |      99.51%    |   3.15s  |
+| gbk file | degree | sequence length | cache size | cache hit rate | run time |
+| -------- | ------ | --------------- | ---------- | -------------- | -------- |
+| test5.gbk|  102   |     20          |    0       |      0%        |  29.52s  |
+| test5.gbk|  102   |     20          |    100     |      66.14%    |  12.56s  |
+| test5.gbk|  102   |     20          |    500     |      77.84%    |  10.22s  |
+| test5.gbk|  102   |     20          |    1000    |      81.45%    |  10.05s  |
+| test5.gbk|  102   |     20          |    5000    |      95.08%    |   5.08s  |
+| test5.gbk|  102   |     20          |    10000   |      99.51%    |   3.15s  |
 
 Using a cache sped up the execution by a factor of 9.37! Using a cache will also speed up search in
 larger BTrees. The `test5.gbk` BTree isn't large enough because a search only takes $\Theta(lg n)$
