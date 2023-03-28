@@ -1,4 +1,6 @@
 
+package cs321.create;
+
 import cs321.common.DNA;
 
 /**
