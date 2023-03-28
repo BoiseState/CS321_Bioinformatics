@@ -55,7 +55,7 @@ One team member should:
 - Create a new **private** GitHub repository and
     - Make sure to name the private repository as specified by your instructor
     - Give repository write permissions to all the other team members
-    - Give repository read permissions to the instructor and the tutors or teaching assistants
+    - Add your instructor and teaching assistants as collaborators
 	  (they will provide you with their GitHub ids)
 - Clone (**not fork**) this repository and verify that gradle can be run.
 
