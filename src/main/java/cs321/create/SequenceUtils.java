@@ -103,7 +103,7 @@ public class SequenceUtils
      */
     public static long getComplement(long sequence, int seqLength)
     {
-        long mask = (1<<(2*seqLength)) - 1;
+        long mask = (1L << (2 * seqLength)) - 1;
         return sequence ^ mask; // use xor operator to invert the bits
     }
 
