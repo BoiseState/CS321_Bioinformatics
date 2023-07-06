@@ -43,7 +43,7 @@ Use the following command to check our installed JDK version:
 $ javac -version
 ```
 
-This project **does not work** with JDK 20.
+This project **does not work** with JDK 21.
 
 It is recommended to use either JDK 8, JDK 11 or JDK 17.
 
