@@ -6,10 +6,22 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
+/**
+ * Unit testing for BTree constructors, Insert, Search and
+ * some TreeObject interactions in the BTree (such as counting duplicates)
+ *
+ * Note some tests use Alphabetic letters as keys, using the simple
+ * mapping that key = index of letter in English alphabet.
+ * e.g. 'A' = 1, 'B' = 2 etc.
+ *
+ * This is to provide more complicated tests that can be modeled
+ * after figures in the CLRS textbook.
+ */
 public class BTreeTest {
 
     /**
@@ -42,7 +54,8 @@ public class BTreeTest {
     //  assert that the constructed tree has the expected number of nodes and
     //  assert that some (or all) of the nodes have the expected values
     @Test
-    public void btreeDegree4Test() {
+    public void btreeDegree4Test()
+    {
 //        //TODO instantiate and populate a bTree object
 //        int expectedNumberOfNodes = TBD;
 //
@@ -64,7 +77,6 @@ public class BTreeTest {
 //            assertEquals(expectedNodesContent[indexNode], bTree.getArrayOfNodeContentsForNodeIndex(indexNode).toString());
 //        }
     }
-
 
     /**
      * Test simple creation of an empty BTree.
@@ -121,6 +133,8 @@ public class BTreeTest {
 
         assertEquals(1, b.getSize());
         assertEquals(0, b.getHeight());
+
+        assertTrue(validateBTreeInserts(b, new long[]{1}));
     }
 
     /**
@@ -134,13 +148,17 @@ public class BTreeTest {
 
         BTree b = new BTree(2, testFilename);
 
+        long[] input = new long[10];
+
         for (int i = 0; i < 10; i++) {
+            input[i] = i;
             b.insert(new TreeObject(i));
         }
 
         assertEquals(10, b.getSize());
         assertEquals(2, b.getHeight());
-        assertEquals(8, b.getNumberOfNodes());
+
+        assertTrue(validateBTreeInserts(b, input));
     }
 
 
@@ -155,13 +173,17 @@ public class BTreeTest {
 
         BTree b = new BTree(2, testFilename);
 
+        long[] input = new long[10];
+
         for (int i = 10; i > 0; i--) {
+            input[10 - i] = i;
             b.insert(new TreeObject(i));
         }
 
         assertEquals(10, b.getSize());
         assertEquals(2, b.getHeight());
-        assertEquals(8, b.getNumberOfNodes());
+
+        assertTrue(validateBTreeInserts(b, input));
     }
 
 
@@ -183,6 +205,7 @@ public class BTreeTest {
 
         assertEquals(1, b.getSize());
         assertEquals(0, b.getHeight());
+        assertTrue(validateSearchTreeProperty(b));
     }
 
 
@@ -203,6 +226,7 @@ public class BTreeTest {
 
         assertEquals(10000, b.getSize());
         assertEquals(12, b.getHeight());
+        assertTrue(validateSearchTreeProperty(b));
     }
 
     /**
@@ -235,6 +259,7 @@ public class BTreeTest {
         assertEquals(8, b.getSize());
         assertEquals(1, b.getHeight());
         assertEquals(3, b.getNumberOfNodes());
+        assertTrue(validateSearchTreeProperty(b));
     }
 
     /**
@@ -391,6 +416,7 @@ public class BTreeTest {
         TreeObject obj = b.search(8);
 
         assertEquals(2, obj.getCount());
+        assertTrue(validateSearchTreeProperty(b));
     }
 
 
@@ -408,18 +434,18 @@ public class BTreeTest {
 
         BTree b = new BTree(2, testFilename); //Different degree than CLRS 18.6!
 
-        b.insert(new TreeObject(1)); //A
-        b.insert(new TreeObject(4)); //D
-        b.insert(new TreeObject(6)); //F
-        b.insert(new TreeObject(8)); //H
-        b.insert(new TreeObject(12)); //L
+        //                        A  D  F  H   L  H
+        long[] input = new long[]{1, 4, 6, 8, 12, 8};
 
-        //Test
-        b.insert(new TreeObject(8)); //H
+        for (int i = 0; i < input.length; i++) {
+            b.insert(new TreeObject(input[i]));
+        }
 
         TreeObject obj = b.search(8);
 
         assertEquals(2, obj.getCount());
+        assertTrue(validateSearchTreeProperty(b));
+        assertTrue(validateBTreeInserts(b, input));
     }
 
 
@@ -431,7 +457,7 @@ public class BTreeTest {
      * @return true if there are no keys in the BTree, or if the keys are indeed in sorted order.
      *
      */
-    private boolean validateSearchTree(BTree b) {
+    private boolean validateSearchTreeProperty(BTree b) {
 
         long[] keys = b.getSortedKeyArray();
 
@@ -455,6 +481,62 @@ public class BTreeTest {
 
 
     /**
+     * Checks BTree b against an array of keys to ensure that they were inserted into the BTree.
+     * The important check here is that no keys are being lost during complex
+     * operations such as splitting children in the tree.
+     *
+     * Also used to validate that all the keys in the BTree
+     * are sorted by using an in order traversal of the tree
+     *
+     * IMPORTANT: handles duplicates in inputKeys by removing them.
+     *
+     * @return true if BTree in order traversal matches provide input
+     */
+    private boolean validateBTreeInserts(BTree b, long[] inputKeys) {
+
+        long[] bTreeKeys = b.getSortedKeyArray();
+
+        //input may be unsorted
+        Arrays.sort(inputKeys);
+
+        //track input as a dynamic set to easily remove duplicates
+        ArrayList<Long> inputNoDuplicates = new ArrayList<>(inputKeys.length);
+
+        //Copy with excluding duplicates
+        for (int i = 0; i < inputKeys.length; i++) {
+
+            if (i > 0) {
+                //only add an element if it is different from the previous iteration.
+                if (inputKeys[i - 1] != inputKeys[i]) {
+                    inputNoDuplicates.add(inputKeys[i]);
+                }
+            } else {
+                inputNoDuplicates.add(inputKeys[i]);
+            }
+        }
+
+        if (bTreeKeys.length != inputNoDuplicates.size()) {
+            //if input and output arrays are different sizes, they can't be equal
+            return false;
+        }
+
+        long prev = bTreeKeys[0];
+
+        for (int i = 0; i < inputKeys.length; i++) {
+            if (bTreeKeys[i] != inputNoDuplicates.get(i)) {
+                return false;
+            }
+
+            if (i > 0 && prev > bTreeKeys[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    /**
      * Utility method to help cleanup the system after unit testing
      *
      * @param filename - the file to delete from the system
@@ -470,5 +552,4 @@ public class BTreeTest {
             file.delete();
         }
     }
-
 }
