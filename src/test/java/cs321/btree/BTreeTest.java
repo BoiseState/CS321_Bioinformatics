@@ -424,6 +424,37 @@ public class BTreeTest {
 
 
     /**
+     * Helper method used to validate that all the keys in the BTree
+     * are sorted by using an in order traversal of the tree
+     *
+     * @param b BTree to validate
+     * @return true if there are no keys in the BTree, or if the keys are indeed in sorted order.
+     *
+     */
+    private boolean validateSearchTree(BTree b) {
+
+        long[] keys = b.getSortedKeyArray();
+
+        /*if there are no keys, the tree is valid
+            Beware, if keys have indeed been inserted but getKeysInOrder is not,
+            this method will return true
+        */
+        if (keys.length == 0) {
+            return true;
+        }
+
+        long prev = keys[0];
+
+        for (int i = 1; i < keys.length; i++) {
+            if (prev > keys[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    /**
      * Utility method to help cleanup the system after unit testing
      *
      * @param filename - the file to delete from the system
