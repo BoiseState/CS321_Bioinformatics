@@ -12,15 +12,15 @@ public class SequenceUtilsTest
     @Test
     public void longToDNAStringTest() throws Exception
     {
-	}
+    }
 
     @Test
     public void DNAStringToLongTest() throws Exception
     {
-	}
+    }
 
-	@Test
-	public void getComplementTest() throws Exception
-	{
-	}
+    @Test
+    public void getComplementTest() throws Exception
+    {
+    }
 }
