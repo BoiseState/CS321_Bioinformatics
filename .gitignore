@@ -7,7 +7,7 @@ bin/
 
 #IntelliJ
 .idea/
-out/
+out*
 *.iml
 
 # Gradle
@@ -18,3 +18,8 @@ build/
 # SQLite database files
 *.sqlite3
 *.db
+
+#ignore generated data files
+*.data.*
+*.dump.*
+dump
