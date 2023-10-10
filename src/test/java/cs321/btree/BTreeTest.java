@@ -205,7 +205,8 @@ public class BTreeTest {
 
         assertEquals(1, b.getSize());
         assertEquals(0, b.getHeight());
-        assertTrue(validateSearchTreeProperty(b));
+
+        assertTrue(validateBTreeInserts(b, new long[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
     }
 
 
@@ -220,13 +221,17 @@ public class BTreeTest {
 
         BTree b = new BTree(2, testFilename);
 
+        long[] input = new long[10000];
+
         for (int i = 0; i < 10000; i++) {
+            input[i] = i;
             b.insert(new TreeObject(i));
         }
 
         assertEquals(10000, b.getSize());
         assertEquals(12, b.getHeight());
-        assertTrue(validateSearchTreeProperty(b));
+
+        assertTrue(validateBTreeInserts(b, input));
     }
 
     /**
@@ -242,24 +247,24 @@ public class BTreeTest {
 
         BTree b = new BTree(4, testFilename);
 
-        b.insert(new TreeObject(1)); //A
-        b.insert(new TreeObject(4)); //D
-        b.insert(new TreeObject(6)); //F
-        b.insert(new TreeObject(8)); //H
-        b.insert(new TreeObject(12)); //L
-        b.insert(new TreeObject(14)); //N
-        b.insert(new TreeObject(16)); //P
+        //                        A  D  F  H   L   N   P  B
+        long[] input = new long[]{1, 4, 6, 8, 12, 14, 16, 2};
+
+        for (int i = 0; i < input.length - 1; i++) {
+            b.insert(new TreeObject(input[i]));
+        }
 
         assertEquals(7, b.getSize());
         assertEquals(0, b.getHeight());
         assertEquals(1, b.getNumberOfNodes());
 
-        b.insert(new TreeObject(2)); //Insert 'B'
+        b.insert(new TreeObject(input[7])); //Insert 'B'
 
         assertEquals(8, b.getSize());
         assertEquals(1, b.getHeight());
         assertEquals(3, b.getNumberOfNodes());
-        assertTrue(validateSearchTreeProperty(b));
+
+        assertTrue(validateBTreeInserts(b, input));
     }
 
     /**
@@ -401,22 +406,21 @@ public class BTreeTest {
 
         BTree b = new BTree(4, testFilename);
 
-        b.insert(new TreeObject(1)); //A
-        b.insert(new TreeObject(4)); //D
-        b.insert(new TreeObject(6)); //F
-        b.insert(new TreeObject(8)); //H
-        b.insert(new TreeObject(12)); //L
-        b.insert(new TreeObject(14)); //N
-        b.insert(new TreeObject(16)); //P
-        b.insert(new TreeObject(2)); //B
+        //                        A  D  F  H   L   N   P  B  H
+        long[] input = new long[]{1, 4, 6, 8, 12, 14, 16, 2, 8};
+
+        for (int i = 0; i < input.length - 1; i++) {
+            b.insert(new TreeObject(input[i]));
+        }
 
         //by inserting a duplicate into a non leaf node, another branch is tested.
-        b.insert(new TreeObject(8)); //H
+        b.insert(new TreeObject(input[8])); //H
 
         TreeObject obj = b.search(8);
 
         assertEquals(2, obj.getCount());
-        assertTrue(validateSearchTreeProperty(b));
+
+        assertTrue(validateBTreeInserts(b, input));
     }
 
 
@@ -426,8 +430,8 @@ public class BTreeTest {
      * a full child.
      * Assertion is that key 'H' (8) has been counted twice in a search
      *
-     * @throws BTreeException
-     * @throws IOException
+     * @throws BTreeException Exception thrown when BTree encounters an unexpected problem
+     * @throws IOException Exception thrown when testing fails due to IO errors
      */
     @Test
     public void testInsertToNotLeafFullChild() throws BTreeException, IOException {
@@ -437,14 +441,14 @@ public class BTreeTest {
         //                        A  D  F  H   L  H
         long[] input = new long[]{1, 4, 6, 8, 12, 8};
 
-        for (int i = 0; i < input.length; i++) {
-            b.insert(new TreeObject(input[i]));
+        for (long l : input) {
+            b.insert(new TreeObject(l));
         }
 
         TreeObject obj = b.search(8);
 
         assertEquals(2, obj.getCount());
-        assertTrue(validateSearchTreeProperty(b));
+
         assertTrue(validateBTreeInserts(b, input));
     }
 
@@ -457,7 +461,7 @@ public class BTreeTest {
      * @return true if there are no keys in the BTree, or if the keys are indeed in sorted order.
      *
      */
-    private boolean validateSearchTreeProperty(BTree b) {
+    private boolean validateSearchTreeProperty(BTree b) throws IOException {
 
         long[] keys = b.getSortedKeyArray();
 
@@ -492,7 +496,7 @@ public class BTreeTest {
      *
      * @return true if BTree in order traversal matches provide input
      */
-    private boolean validateBTreeInserts(BTree b, long[] inputKeys) {
+    private boolean validateBTreeInserts(BTree b, long[] inputKeys) throws IOException {
 
         long[] bTreeKeys = b.getSortedKeyArray();
 
@@ -522,7 +526,7 @@ public class BTreeTest {
 
         long prev = bTreeKeys[0];
 
-        for (int i = 0; i < inputKeys.length; i++) {
+        for (int i = 0; i < bTreeKeys.length; i++) {
             if (bTreeKeys[i] != inputNoDuplicates.get(i)) {
                 return false;
             }

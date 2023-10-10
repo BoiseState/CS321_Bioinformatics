@@ -43,9 +43,13 @@ Use the following command to check our installed JDK version:
 $ javac -version
 ```
 
-This project **does not work** with JDK 21.
+This project **does not work** with JDK 22.
 
-It is recommended to use either JDK 8, JDK 11 or JDK 17 or JDK 19 or 20.
+It is recommended to use any of the following versions:
+- JDK 8 (LTS)
+- JDK 11 (LTS)
+- JDK 17 (LTS)
+- JDK 21 (LTS)
 
 :book: See this [wiki page for additional details regarding the supported Java versions and links to download the correct JDK versions](https://github.com/BoiseState/CS321_Bioinformatics/wiki/Install-the-correct-JDK-version).
 
