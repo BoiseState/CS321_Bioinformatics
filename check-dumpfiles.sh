@@ -1,7 +1,7 @@
 #!/bin/sh
 
 case $# in
-0) echo "Usage: " `basename $0` " <datafile (in data/files_gbk folder)> "; exit 1;;
+0) echo "Usage: " `basename $0` " <datafile name (from the data/files_gbk folder)> "; exit 1;;
 esac
 
 datafile=$1

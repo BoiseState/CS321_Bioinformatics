@@ -21,9 +21,11 @@
 # Starter Code
 This repository contains:
 - the expected project package structure, in the [src/](src/) folder
-- some partial implementation of classes, in the [src/main/java/cs321/](src/main/java/cs321/) folder
+- some partial implementation of classes (including the interface to the BTree class), in the [src/main/java/cs321/](src/main/java/cs321/) folder
 - sample [JUnit](https://junit.org/) tests, in the [src/test/java/cs321/](src/test/java/cs321/) folder
-- sample input data and expected results, in the [data/](data/) folder
+- sample input data, in the [data/](data/) folder
+- sample expected results, in the [results/](results/) folder
+- script for integration testing at the top-level of the repository
 - a wrapper for the [gradle](https://gradle.org/) build tool, which simplifies installing and running gradle. In turn, gradle facilitates and handles:
     - Java library (e.g., JUnit) dependency management
     - Compiling the code
@@ -179,6 +181,7 @@ As a warm up exercise, each team member should create a task similar to [`task
 
 Here is a sample project log from a team from a previous semester:
 [Project-Log-sample.md](https://github.com/BoiseState/CS321_Bioinformatics/blob/master/Project-log-sample.md)
+This has been included in the starter repository so you use it as a template.
 
 <hr/>
 
@@ -607,7 +610,7 @@ In particular, results are provided for `query1`,..., `query10`, `query20`, and 
 for `test0.gbk` and `test5.gbk` GeneBank files.
 
 Three test scripts are provided at the top-level of the project (for intergration testing). These
-compare your results to the results files mentioed above.
+compare your results to the results files mentioned above.
 
 ```bash
 ./create-btrees.sh 
@@ -621,7 +624,7 @@ Usage:  check-queries.sh  <datafile>
 ```
 
 Please note that the scripts require the name of the test file and then it will add the
-appropriate path to the name to fnd it.  The `check-btrees.sh` script creates B-Trees for the given
+appropriate path to the name to find it.  The `check-btrees.sh` script creates B-Trees for the given
 data file for strings of length 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 31. The `check-dumpfiles.sh`
 compares the dump files from our code to the reference dump files. The `check-queries.sh`
 script compares the results of queries to our program with the reference results.
@@ -677,10 +680,10 @@ Progress reports are confidential.
 
 ## 12. Submission
 Before submission, make sure that you:
-- make sure that your `README-submission.md` file is complete!
-- can clone the team repository on the `onyx` server
-- can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) on `onyx` and obtain the expected results (just try test0.gbk)
+- that your `README-submission.md` file is complete!
+- can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) and obtain the expected results (just try test0.gbk)
 - run the [test scripts](#9-test-scripts)
-- submit on onyx 
+- submit by pushing to GitHub with a note in your `README-submission.md` that this the final
+  commit and push.
 
 Make sure the [instructor and the teaching assistant(s) have access to the repository](#one-time-team-setup).
