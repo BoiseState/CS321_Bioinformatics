@@ -10,11 +10,11 @@
 
 # Learning Objectives
 
--gcDevelop a complex project in a team by applying good software engineering practices such as  agile development, version control, and data persistence along with testing and code instrumentation.
+- Develop a complex project in a team by applying good software engineering practices such as  agile development, version control, and data persistence along with testing and code instrumentation.
 - Demonstrate effective teamwork as a member or a leader of a team.
 - Design, implement, and evaluate a computing-based solution to a given set of computing requirements for a problem from a specific domain.
 - Learn how to implement a BTree external data structure on the disk.
--gcDemonstrate  how to use caching to improve performance of an application.
+- Demonstrate  how to use caching to improve performance of an application.
 - Understand how bitwise operators reduce the memory footprint of data.
 - Learn how to run an application in the cloud.
 
@@ -27,11 +27,11 @@ This repository contains:
 - sample expected results, in the [results/](results/) folder
 - script for integration testing at the top-level of the repository
 - a wrapper for the [gradle](https://gradle.org/) build tool, which simplifies installing and running gradle. In turn, gradle facilitates and handles:
-gc   - Java library (e.g., JUnit) dependency management
-gc   - Compiling the code
-gc   - Generating self-containing jars
-gc   - Running classes
-gc   - Running unit tests
+    - Java library (e.g., JUnit) dependency management
+    - Compiling the code
+    - Generating self-containing jars
+    - Running classes
+    - Running unit tests
 
 :heavy_exclamation_mark: **NOTE: Do NOT fork this repository**, because the forked repository
 cannot have its own GitHub issues, which will be used as Scrum tasks.
@@ -59,10 +59,10 @@ It is recommended to use any of the following versions:
 ## One-Time Team Setup
 One team member should:
 - Create a new **private** GitHub repository and
-gc   - Make sure to name the private repository as specified by your instructor
-gc   - Give repository write permissions to all the other team members
-gc   - Add your instructor and teaching assistants as collaborators
-	gc (they will provide you with their GitHub ids)
+    - Make sure to name the private repository as specified by your instructor
+    - Give repository write permissions to all the other team members
+    - Add your instructor and teaching assistants as collaborators
+	  (they will provide you with their GitHub ids)
 - Clone (**not fork**) this repository and verify that gradle can be run.
 
 ```bash
@@ -77,7 +77,7 @@ listing all the available gradle tasks and their descriptions.
 **NOTE:** On Windows, the `./gradlew` command should be replaced with `gradlew`
 (which will call the [`gradlew.bat`](/gradlew.bat) file)
 
-Thegcsame team member should push the cloned repository to the new private repository.  This can
+The same team member should push the cloned repository to the new private repository.  This can
 be done by changing the remote URL of the cloned repository to the new private repository's URL.
 
 ```bash
@@ -158,13 +158,13 @@ based on this [project example](https://github.com/BoiseState/CS321_Bioinformati
 
 Your Scrum board should contain the following columns (pipelines):
 
-ColumngcName     | Description
+Column Name     | Description
 --------------- | -----------
 Product Backlog | All (unassigned) tasks that are going to be completed by the team throughout the duration of the project
-SprintgcBacklog  | Tasks proposed to be implemented in the current week (sprint), assigned to developers
-IngcProgress     | Tasks currently being worked on
-Review/QAgc      | Tasks ready to be reviewed by another team member
-Closedgc         | Completed tasks, whose corresponding code is integrated in the `master` branch
+Sprint Backlog  | Tasks proposed to be implemented in the current week (sprint), assigned to developers
+In Progress     | Tasks currently being worked on
+Review/QA       | Tasks ready to be reviewed by another team member
+Closed          | Completed tasks, whose corresponding code is integrated in the `master` branch
 
 Tasks should be assigned to the developer working on them. Each team
 member should add to the project log file, Project-Log.md, the tasks (e.g.,
@@ -216,7 +216,7 @@ technology merge to form a single discipline. One of the primary aims of Bioinfo
 to attempt to determine the structure and meaning of the human genome. The _human genome_
 is a complete set of human DNA. The Human Genome project was started in 1990 by the United
 States Department of Energy and the U.S. National Institutes of Health. By April 14, 2003 99%
-ofgcthe Human Genome had been sequenced with 99.9% accuracy.  The Human Genome is a big strand
+of the Human Genome had been sequenced with 99.9% accuracy.  The Human Genome is a big strand
 of 4 different organic chemicals, known as bases, which are:
 
 - _Adenine_
@@ -226,9 +226,9 @@ of 4 different organic chemicals, known as bases, which are:
 
 Biologists often call them `A`, `C`, `T`, `G` for short. The bases `A` and `T` are always
 paired together. Similarly the bases `C` and `G` are always paired together. So when we look
-atgcthe DNA representation, only one side is listed.  For example: the DNA sequence: `AATGC`
+at the DNA representation, only one side is listed.  For example: the DNA sequence: `AATGC`
 actually represents two sequences: `AATGC` and its complement `TTACG` (replace `A` by `T`,
-`T`gcby `A`, `C` by `G` and `G` by `C`).  Even with only half the bases represented in a DNA
+`T` by `A`, `C` by `G` and `G` by `C`).  Even with only half the bases represented in a DNA
 sequence, the human genome is about **2.87 billion characters** long!
 
 See below an image of the DNA as well as the chemical structure of the bases.
@@ -278,12 +278,12 @@ Sample GeneBank files (having the `*.gbk` extension) can be found in the
 ```bash
 [amit@fedora-linux files_gbk(master)]$ ls -lh
 total 2.8M
--rw-r--r--.gc1 amit amit  11K Nov  1 07:55 test0.gbk
--rw-r--r--.gc1 amit amit  11K Nov  1 07:55 test1.gbk
--rw-r--r--.gc1 amit amit  21K Nov  1 07:55 test2.gbk
--rw-r--r--.gc1 amit amit  21K Nov  1 07:55 test3.gbk
--rw-r--r--.gc1 amit amit 4.1K Nov  1 07:55 test4.gbk
--rw-r--r--.gc1 amit amit 2.7M Nov  1 07:55 test5.gbk
+-rw-r--r--. 1 amit amit  11K Nov  1 07:55 test0.gbk
+-rw-r--r--. 1 amit amit  11K Nov  1 07:55 test1.gbk
+-rw-r--r--. 1 amit amit  21K Nov  1 07:55 test2.gbk
+-rw-r--r--. 1 amit amit  21K Nov  1 07:55 test3.gbk
+-rw-r--r--. 1 amit amit 4.1K Nov  1 07:55 test4.gbk
+-rw-r--r--. 1 amit amit 2.7M Nov  1 07:55 test5.gbk
 ```
 The files `test0.gbk` through `test4.gbk` are small files to help in debugging and testing our
 code. The `test5.gbk` is a relatively large file that we can also use to test the performance
@@ -326,18 +326,18 @@ frequency to aid in searching. This can be created from the BTree.
 
 ### 4.1. Saving memory
 We could represent each DNA base as a character. In Java, each character is stored in Unicode,
-whichgcrequires 16 bits (or 2 bytes).  Since we only have four possible bases (`A`, `C`, `G`
+which requires 16 bits (or 2 bytes).  Since we only have four possible bases (`A`, `C`, `G`
 and `T`), we can optimize on space by converting each DNA base to a 2 bit binary numbers. This
 is because, a 2-bit binary number can represent four unique values, one for each DNA base. The
 following table show the encoding we will use for the four bases (assuming lowercase for A, T,
 C, G). We have included the Unicode values so we can see that it takes 8 times more space!
 
-|gcDNA Base | 2-bit binary | Unicode (decimal) | 16-bit Unicode      |
-|gc-------- | ------------ | --------------    | ------------------- |
-|gcA        | 00           |  97               | 0000 0000 0110 0001 |
-|gcT        | 11           | 116               | 0000 0000 0111 0100 |
-|gcC        | 01           | 100               | 0000 0000 0110 0100 |
-|gcG        | 10           | 103               | 0000 0000 0110 0111 |
+| DNA Base | 2-bit binary | Unicode (decimal) | 16-bit Unicode      |
+| -------- | ------------ | --------------    | ------------------- |
+| A        | 00           |  97               | 0000 0000 0110 0001 |
+| T        | 11           | 116               | 0000 0000 0111 0100 |
+| C        | 01           | 100               | 0000 0000 0110 0100 |
+| G        | 10           | 103               | 0000 0000 0110 0111 |
 
 Note that we have made the binary representations for complementary bases be binary complements
 as well. For example, complement of the base `A` is `T` --- the complement of `00` is `11`.
@@ -348,7 +348,7 @@ primitive type in Java.
 
 *Hint*: The reason why the upper limit of the sequence length is 31 but not 32 can be
 explained as follows. The long type has 8 bytes or 64 bits to represent integers between
--9,223,372,036,854,775,808gcand 9,223,372,036,854,775,807.  The first bit is been reserved for
+-9,223,372,036,854,775,808 and 9,223,372,036,854,775,807.  The first bit is been reserved for
 the sign (+ or -) of the number and thus the effective number of bits for storing data is 63,
 which can hold up to 31 2-bit binary codes (e.g., 00 for A, etc), using up 62 bits and then we
 run out of space to add another 2-bit representation of a DNA base.
@@ -368,7 +368,7 @@ We will create three programs:
 - second for **searching in the specified BTree** for subsequences of given length. The search program
 assumes that the user specified the proper BTree to use depending upon the query length.
 - third for **searching in the SQL database** for subsequences of specified length. This database
-gc would be created as a by-product of the first program.
+  would be created as a by-product of the first program.
 
 The main Java classes should be named `GeneBankCreateBTree`, `GeneBankSearchBTree`, and
 `GeneBankSearchDatabase`.
@@ -377,7 +377,7 @@ The main Java classes should be named `GeneBankCreateBTree`, `GeneBankSearchBTre
 The required arguments for the three programs are shown below:
 
 ```bash
-javagc-jar build/libs/GeneBankCreateBTree.jar --cache=<0|1>  --degree=<btree-degree> 
+java -jar build/libs/GeneBankCreateBTree.jar --cache=<0|1>  --degree=<btree-degree> 
 	--gbkfile=<gbk-file> --length=<sequence-length> [--cachesize=<n>] [--debug=0|1]
 
 
@@ -386,7 +386,7 @@ java -jar build/libs/GeneBankSearchBTree.jar --cache=<0/1> --degree=<btree-degre
 	[--cachesize=<n>] [--debug=0|1]
 
 java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-path> 
-gc     --queryfile=<query-file>
+      --queryfile=<query-file>
 ```
 
 **Note that the arguments can be provided in any order.**
@@ -416,29 +416,29 @@ have the same length as the DNA subsequences in the B-Tree file. The DNA strings
 maximum number of `BTreeNode` objects that can be stored in memory
 
 - `<SQLite-database-path>` the path to the SQL database created after BTree creation for a
-gc specific sequence length. The name of the database file should be `xyz.k.db` where the sequence
-gc length is `<k>`, and the GeneBank file is `xyz.gbk`. The database file should have been
-gc created by the `GeneBankCreateBTree` program from the BTree it creates
+  specific sequence length. The name of the database file should be `xyz.k.db` where the sequence
+  length is `<k>`, and the GeneBank file is `xyz.gbk`. The database file should have been
+  created by the `GeneBankCreateBTree` program from the BTree it creates
 
 - `[<debug-level>]` is an optional argument with a default value of zero
 
-gc   - It must support at least the following values for `GeneBankSearchBTree`:
+    - It must support at least the following values for `GeneBankSearchBTree`:
 
-gc       - `0`: The output of the queries should be printed on the standard output stream. Any
-gc       diagnostic messages, help and status messages must be be printed on the standard
-gc       error stream
+        - `0`: The output of the queries should be printed on the standard output stream. Any
+        diagnostic messages, help and status messages must be be printed on the standard
+        error stream
 
 		- '1': The program displays more verbose messages. For example, it can show
 		details of each search process
 
-gc   - It must support at least the following values for `GeneBankCreateBTree`:
+    - It must support at least the following values for `GeneBankCreateBTree`:
 
-gc       - `0`: Any diagnostic messages, help and status messages must be be printed on standard
-gc       error stream
+        - `0`: Any diagnostic messages, help and status messages must be be printed on standard
+        error stream
 
-gc       - `1`: The program writes a text file named `dump`, containing the frequency and the DNA
-gc       string (corresponding to the key stored) in an inorder traversal, and has the following
-gc       line format:
+        - `1`: The program writes a text file named `dump`, containing the frequency and the DNA
+        string (corresponding to the key stored) in an inorder traversal, and has the following
+        line format:
 
 ```bash
 <DNA string> <frequency>
@@ -481,7 +481,7 @@ store the B-Tree as a text file, it will lead to severe slowdown in the runtime.
 
 The BTree data file will have an initial metadata section. The metadata section should contain
 at least the byte offset of the root node. It may also optionally contain the degree of the
-BTreegcand the number of nodes.  After the metadata, the rest of the file consists of BTreeNodes
+BTree and the number of nodes.  After the metadata, the rest of the file consists of BTreeNodes
 laid out one after the other. A new node is added to the end of the file.
 
 If the name of the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree
@@ -497,10 +497,10 @@ as possible with some empty padding space at the end (if needed).
 - We will store the byte offset of a node on disk as the child pointers in the BTreeNodes. Note
 that we never need real child pointers in memory.
 
--gcWe will use RandomAccessFile  and FileChannel classes to read/write to the BTree
+- We will use RandomAccessFile  and FileChannel classes to read/write to the BTree
 data file. This allows us to quickly set the file cursor to anywhere in the file
 in O(1) time using the `position(long pos)` method. We will use the ByteBuffer
-classgcto read/write to the BTree data file.  Please see the example of writing
+class to read/write to the BTree data file.  Please see the example of writing
 to a random access binary data file shown in DiskReadWrite.java in the [Disk IO
 example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples)
 folder in CS321-resources repo. This example shows a complete binary search tree as an external
@@ -534,12 +534,12 @@ your times will be different due to different hardware and differences in the im
 
 | gbk file | degree | sequence length | cache | cache size | cache hit rate | run time |
 | -------- | ------ | --------------- | ----- | ---------- | -------------- | -------- |
-|gctest5.gbk|  102   |     20          |  no   |    0       |      0%        |  29.52s  |
-|gctest5.gbk|  102   |     20          |  yes  |    100     |      66.14%    |  12.56s  |
-|gctest5.gbk|  102   |     20          |  yes  |    500     |      77.84%    |  10.22s  |
-|gctest5.gbk|  102   |     20          |  yes  |    1000    |      81.45%    |  10.05s  |
-|gctest5.gbk|  102   |     20          |  yes  |    5000    |      95.08%    |   5.08s  |
-|gctest5.gbk|  102   |     20          |  yes  |    10000   |      99.51%    |   3.15s  |
+| test5.gbk|  102   |     20          |  no   |    0       |      0%        |  29.52s  |
+| test5.gbk|  102   |     20          |  yes  |    100     |      66.14%    |  12.56s  |
+| test5.gbk|  102   |     20          |  yes  |    500     |      77.84%    |  10.22s  |
+| test5.gbk|  102   |     20          |  yes  |    1000    |      81.45%    |  10.05s  |
+| test5.gbk|  102   |     20          |  yes  |    5000    |      95.08%    |   5.08s  |
+| test5.gbk|  102   |     20          |  yes  |    10000   |      99.51%    |   3.15s  |
 
 Using a cache sped up the execution by a factor of 9.37! Using a cache will also speed up search in
 larger BTrees. The `test5.gbk` BTree isn't large enough because a search only takes $\Theta(lg n)$
@@ -561,10 +561,10 @@ structure and then store the results in a database for ease of access.
 ```bash
 $ ./gradlew createJarGeneBankSearchDatabase
 $ java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-path> 
-gc     --queryfile=<query-file>
+      --queryfile=<query-file>
 ```
 
-Wegcwill use the embedded SQLite database for this project.  The SQLite database is fully
+We will use the embedded SQLite database for this project.  The SQLite database is fully
 contained in a jar file that gradle will automatically pull down for us. See the database
 example in the section below on how to use SQLite.
 
@@ -573,10 +573,10 @@ example in the section below on how to use SQLite.
 The following examples from the class examples repository will be useful for this project.
 
 - [Disk IO example](https://github.com/BoiseState/CS321-resources/tree/master/examples/disk-IO-examples): In
-gc particular, look at DiskReadWrite.java. It shows the implementation of an external binary
-gc search tree on disk.
+  particular, look at DiskReadWrite.java. It shows the implementation of an external binary
+  search tree on disk.
 - [SQLite example](https://github.com/BoiseState/CS321-resources/tree/master/examples/SQLite): A
-gc quick starter example on how to set up and use SQLite.
+  quick starter example on how to set up and use SQLite.
 - [Bitwise operators
 example](https://github.com/BoiseState/CS321-resources/tree/master/examples/bitwise-operators-example):
 In particular, look at SequenceUtils.java for helpful sequence utility code. A copy of this
@@ -602,7 +602,7 @@ Several pre-generated query files are provided in the folder:
 [data/queries](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/data/queries).
 To generate additional queries, we can use the `data/queries/QueryGenerator.java` program.
 
-Thegcexpected dump files and query results are provided  for `test0.gbk` and `test5.gbk` in the folders:
+The expected dump files and query results are provided  for `test0.gbk` and `test5.gbk` in the folders:
 [results/dumpfiles](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/results/dumpfiles),
 [results/query-results](https://github.com/BoiseState/CS321_Bioinformatics/tree/master/results/query-results)
 
@@ -614,17 +614,17 @@ compare your results to the results files mentioned above.
 
 ```bash
 ./create-btrees.sh 
-Usage:gc create-btrees.sh  <datafile> 
+Usage:  create-btrees.sh  <datafile> 
 
 ./check-dumpfiles.sh 
-Usage:gc check-dumpfiles.sh  <datafile> 
+Usage:  check-dumpfiles.sh  <datafile> 
 
 ./check-queries.sh 
-Usage:gc check-queries.sh  <datafile> 
+Usage:  check-queries.sh  <datafile> 
 ```
 
 Please note that the scripts require the name of the test file and then it will add the
-appropriategcpath to the name to find it.  The `check-btrees.sh` script creates B-Trees for the given
+appropriate path to the name to find it.  The `check-btrees.sh` script creates B-Trees for the given
 data file for strings of length 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 31. The `check-dumpfiles.sh`
 compares the dump files from our code to the reference dump files. The `check-queries.sh`
 script compares the results of queries to our program with the reference results.
@@ -641,7 +641,7 @@ to run and compare results using the three test scripts as follows.
 ./check-queries.sh test0.gbk
 ```
 
-Then,gcrepeat for `test5.gbk`.  The instructors will use these test scripts for the final testing of
+Then, repeat for `test5.gbk`.  The instructors will use these test scripts for the final testing of
 your project.
 
 Start off by running tests on your machine. If you do need to run them on `onyx` please only
@@ -660,7 +660,7 @@ for a step by step guide on running your project on the AWS cloud.
 ## 11. Progress Reports
 
 Each team member will fill out a progress report (via a survey) each week. The link to the
-surveygcwill be  provided by the instructor.
+survey will be  provided by the instructor.
 
 In addition, each team member should log their project-related
 activities for the week, including the URL to the tasks (e.g.,
