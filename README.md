@@ -683,7 +683,6 @@ Before submission, make sure that you:
 - that your `README-submission.md` file is complete!
 - can [compile and run the program from the command line](#compile-and-run-the-project-from-the-command-line) and obtain the expected results (just try test0.gbk)
 - run the [test scripts](#9-test-scripts)
-- submit by pushing to GitHub with a note in your `README-submission.md` that this the final
-  commit and push.
+- add a note in your `README-submission.md` that the team is done and then commit and push.
 
 Make sure the [instructor and the teaching assistant(s) have access to the repository](#one-time-team-setup).
