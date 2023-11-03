@@ -252,13 +252,13 @@ intervening annotations.
 The GeneBank files have a bunch of annotations followed by the keyword `ORIGIN`. The DNA sequences
 start from the next line. Each line has 60 characters (one of `A`, `T`, `C`, `G`, could be
 lower/upper case) until the end of sequence, which is denoted by `//` on a line by itself.
-Sometimes we will see the character `N`, which denotes that the sequence is not known at that
-character. You would skip these characters as described below.
+Sometimes we will see the character `N` or 'n', which denotes that the sequence is not known
+at that character. You would skip these characters as described below.
 
-**When we reach a character `N`, we assume that the sequence has ended. Similarly, when we reach
-`//`, we also assume that the sequence has ended. So at those points, we reset the sequence
-that we were building and start over when we find the next valid character after seeing a `N`
-or when we find the next `ORIGIN` tag.**
+**when we reach a character `n`, we assume that the sequence has ended. similarly, when we reach
+`//`, we also assume that the sequence has ended. so at those points, we reset the sequence
+that we were building and start over when we find the next valid character after seeing a `n`
+or when we find the next `origin` tag.**
 
 One GeneBank file may have several DNA sequences in it, each marked by `ORIGIN` and `//` tags.
 
@@ -269,8 +269,6 @@ Here is a sample GeneBank file with the `ORIGIN` and `//` tags as well as some t
 highlighted.
 
 ![Sample GeneBank file](docs/sample.gbk.png)
-
-
 
 Sample GeneBank files (having the `*.gbk` extension) can be found in the
 [data/files_gbk/](data/files_gbk/) folder.
