@@ -528,7 +528,9 @@ needs to be specified as well.
 file.
 
 For example, the table below shows the improvement the instructors got on their solution. Note that
-your times will be different due to different hardware and differences in the implementation.
+your times will be different due to different hardware and differences in the implementation. Also,
+we turned off the creation of the database for these timings -- creation of the database will take a
+significant amount of time.
 
 | gbk file | degree | sequence length | cache | cache size | cache hit rate | run time |
 | -------- | ------ | --------------- | ----- | ---------- | -------------- | -------- |
