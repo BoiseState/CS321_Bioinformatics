@@ -649,11 +649,18 @@ your project.
 Start off by running tests on your machine. If you do need to run them on `onyx` please only
 run the smallest test (`test0.gbk`) to avoid overloading the `onyx` server.
 
-## 10. Testing in the Cloud
+## 10. Extra Credit: Testing a Large File in the Cloud
 
-We will setup [Amazon AWS](https://aws.amazon.com/) accounts for each student so that you can run
-larger tests in the cloud. **Running our tests on AWS is required so we can all get experience
-using the cloud.** :cloud: :smiley:
+Using the AWS Accounts provided earlier in the course, you can run the 
+large Y-Chromosome file on a cloud instance. 
+
+Creating a BTree with the large file is very intensive, and will take too long to run
+unless your cache implementation is efficient, and your BTree is well-designed.
+
+To be rewarded the extra credit, capture a screenshot of check-queries.sh completed with a time stamp
+and include it with your submission.
+
+:cloud: :smiley:
 
 Please see the [AWS
 notes](https://docs.google.com/document/d/1v5a0XlzaNyi63TXXKP4BQsPIdJt4Zkxn2lZofVP8qqw/edit?usp=sharing)
