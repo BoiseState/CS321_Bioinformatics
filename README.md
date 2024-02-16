@@ -551,7 +551,7 @@ of memory), we were able to bring the time to create the BTree down to only 2m19
 
 Using the dumpfiles from your BTree, load the data into an SQLite database using the
 SQLite .import command. See the documentation 
-(here)[https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats].
+[here](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
 Then we will create a separate search program named `GeneBankSearchDatabase` 
 that uses the database instead of the BTree. This is a common pattern in real life
 applications, where we may crunch lots of data using a data
