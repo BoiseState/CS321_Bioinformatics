@@ -317,7 +317,7 @@ length `k`*. The search returns the frequency of occurrence of the query string 
 zero if it is not found). 
 
 We will also create a SQL database (for a specific length `k`) of subsequences and their
-frequency to aid in searching. This can be created from the BTree.
+frequency to aid in searching. This can be created from the BTree dump files.
 
 
 ## 4. Design Issues
@@ -366,7 +366,7 @@ We will create three programs:
 - second for **searching in the specified BTree** for subsequences of given length. The search program
 assumes that the user specified the proper BTree to use depending upon the query length.
 - third for **searching in the SQL database** for subsequences of specified length. This database
-  would be created as a by-product of the first program.
+  would be created by loading btree dump files using the SQLite interface outside our program.
 
 The main Java classes should be named `GeneBankCreateBTree`, `GeneBankSearchBTree`, and
 `GeneBankSearchDatabase`.
@@ -413,8 +413,8 @@ have the same length as the DNA subsequences in the B-Tree file. The DNA strings
 - `[<cache-size>]` is an integer between `100` and `10000` (inclusive) that represents the
 maximum number of `BTreeNode` objects that can be stored in memory
 
-- `<SQLite-database-path>` the path to the SQL database created after BTree creation for a
-  specific sequence length. The name of the database file should be `xyz.k.db` where the sequence
+- `<SQLite-database-path>` the path to the SQL database created by loading a dump file using
+  SQLite's .import command. The name of the database file should be `xyz.k.db` where the sequence
   length is `<k>`, and the GeneBank file is `xyz.gbk`. The database file should have been
   created by the `GeneBankCreateBTree` program from the BTree it creates
 
@@ -528,9 +528,7 @@ needs to be specified as well.
 file.
 
 For example, the table below shows the improvement the instructors got on their solution. Note that
-your times will be different due to different hardware and differences in the implementation. Also,
-we turned off the creation of the database for these timings -- creation of the database will take a
-significant amount of time.
+your times will be different due to different hardware and differences in the implementation.
 
 | gbk file | degree | sequence length | cache | cache size | cache hit rate | run time |
 | -------- | ------ | --------------- | ----- | ---------- | -------------- | -------- |
@@ -551,12 +549,16 @@ of memory), we were able to bring the time to create the BTree down to only 2m19
 
 ## 7. Using a Database 
 
-Design a simple database to store the results (sequences and frequencies) from the B-Tree.
-We will perform an inorder tree traversal to get the information to store in the database. This
-would be done at the end of creating the GeneBank BTree. Then we will create a separate search
-program named `GeneBankSearchDatabase` that uses the database instead of the BTree. This is
-a common pattern in real life applications, where we may crunch lots of data using a data
+Using the dumpfiles from your BTree, load the data into an SQLite database using the
+SQLite .import command. See the documentation 
+(here)[https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats].
+Then we will create a separate search program named `GeneBankSearchDatabase` 
+that uses the database instead of the BTree. This is a common pattern in real life
+applications, where we may crunch lots of data using a data
 structure and then store the results in a database for ease of access.
+
+Note: Since correct dumpfiles are provided in under results/ GeneBankSearchDatabase 
+can be started and completed before GeneBankCreateBTree.
 
 ```bash
 $ ./gradlew createJarGeneBankSearchDatabase
@@ -564,7 +566,7 @@ $ java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-pa
       --queryfile=<query-file>
 ```
 
-We will use the embedded SQLite database for this project.  The SQLite database is fully
+We will use the embedded SQLite database for searching the database.  The SQLite driver is fully
 contained in a jar file that gradle will automatically pull down for us. See the database
 example in the section below on how to use SQLite.
 
