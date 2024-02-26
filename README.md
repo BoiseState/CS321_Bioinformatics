@@ -142,7 +142,7 @@ automatically by gradle or our IDE.
 The focus of this project is to learn about data structures, while working effectively in a group.
 In addition, given the small project scope, and the fixed set of requirements that are already
 defined (and will not need to be elicited with the use of a Product Owner), the team can
-customize the Scrum process learned in CS-HU 271 and focus exclusively on:
+customize the Scrum process learned in CS-HU 208 and focus exclusively on:
 - creating tasks
 - linking commits to task IDs (e.g., `Implements task #123`)
 - Test-Driven Development and unit testing. The [starter code](#starter-code) already contains a few [sample unit tests](src/test/java/cs321) that can be [run from the command line](#compile-and-run-the-project-from-the-command-line).
@@ -557,7 +557,7 @@ that uses the database instead of the BTree. This is a common pattern in real li
 applications, where we may crunch lots of data using a data
 structure and then store the results in a database for ease of access.
 
-Note: Since correct dumpfiles are provided in under results/ GeneBankSearchDatabase 
+Note: Since correct dumpfiles are provided in the results folder, GeneBankSearchDatabase 
 can be started and completed before GeneBankCreateBTree.
 
 ```bash
@@ -654,10 +654,10 @@ run the smallest test (`test0.gbk`) to avoid overloading the `onyx` server.
 Using the AWS Accounts provided earlier in the course, you can run the 
 large Y-Chromosome file on a cloud instance. 
 
-Creating a BTree with the large file is very intensive, and will take too long to run
-unless your cache implementation is efficient, and your BTree is well-designed.
+Creating a BTree with the large file is very time intensive. It will take too long to run
+unless your cache implementation is efficient and your BTree is well-designed.
 
-To be rewarded the extra credit, capture a screenshot of check-queries.sh completed with a time stamp
+To be rewarded with the extra credit, capture a screenshot of check-queries.sh completed 
 and include it with your submission.
 
 :cloud: :smiley:
