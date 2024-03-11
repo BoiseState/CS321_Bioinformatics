@@ -652,12 +652,13 @@ run the smallest test (`test0.gbk`) to avoid overloading the `onyx` server.
 ## 10. Extra Credit: Testing a Large File in the Cloud
 
 Using the AWS Accounts provided earlier in the course, you can run the 
-large Y-Chromosome file on a cloud instance. 
+large Y-Chromosome file on a cloud instance, provided you create a larger instance.
 
 Creating a BTree with the large file is very time intensive. It will take too long to run
 unless your cache implementation is efficient and your BTree is well-designed.
 
-To be rewarded with the extra credit, capture a screenshot of check-queries.sh completed 
+To be rewarded with the extra credit, request permissions to create a larger instance. 
+Then, capture a screenshot of check-queries.sh completed 
 and include it with your submission.
 
 :cloud: :smiley:
