@@ -208,7 +208,7 @@ This has been included in the starter repository so you use it as a template.
 ## 1. Introduction
 In this assignment, we will solve a problem from the field of Bioinformatics using BTrees.
 The amount of data that we have to handle is large and any data structure is not likely to fit
-in memory. Hence a BTree is a good choice for the data structure.
+in memory. Hence, a BTree is a good choice for the data structure.
 
 ## 2. Background
 _Bioinformatics_ is the field of science in which biology, computer science, and information
@@ -225,7 +225,7 @@ of 4 different organic chemicals, known as bases, which are:
 - _Guanine_
 
 Biologists often call them `A`, `C`, `T`, `G` for short. The bases `A` and `T` are always
-paired together. Similarly the bases `C` and `G` are always paired together. So when we look
+paired together. Similarly, the bases `C` and `G` are always paired together. So when we look
 at the DNA representation, only one side is listed.  For example: the DNA sequence: `AATGC`
 actually represents two sequences: `AATGC` and its complement `TTACG` (replace `A` by `T`,
 `T` by `A`, `C` by `G` and `G` by `C`).  Even with only half the bases represented in a DNA
@@ -294,7 +294,7 @@ random queries for testing
 
 An optional large test file is the Y chromosome for human beings. That is a large
 file (31MB, but the smallest of all human chromosomes). To run our program on this
-file is optional as it may take a long time! 10,000 nodes. Note that this file isn't
+file is optional as it may take a long time! Note that this file isn't
 available on GitHub due to their limitation on file size. You can download it from here:
 [hs_ref_chrY.gbk](https://drive.google.com/file/d/1zkAIQW8ol7HxGxNBeJTSuwES7EqPYiHx/view?usp=sharing)
 
@@ -317,7 +317,8 @@ length `k`*. The search returns the frequency of occurrence of the query string 
 zero if it is not found). 
 
 We will also create a SQL database (for a specific length `k`) of subsequences and their
-frequency to aid in searching. This can be created from the BTree dump files.
+frequency to aid in searching. A database will be directly created from the provided 
+BTree dump files.
 
 
 ## 4. Design Issues
@@ -353,7 +354,7 @@ run out of space to add another 2-bit representation of a DNA base.
 
 ### 4.2. Key Values
 Note that the binary compact representation of the subsequences will result in a unique 64-bit
-integer value. Hence we can directly use that as our key value.
+integer value. Hence, we can directly use that as our key value.
 
 ### 4.3. Class Design
 We will need a `BTree` class as well as a `BTreeNode` class. The objects that we store in the
@@ -363,10 +364,10 @@ call the relevant class `TreeObject` to represent the objects.
 ## 5. Implementation
 We will create three programs:
 - one that **creates a BTree** from a given GeneBank file 
-- second for **searching in the specified BTree** for subsequences of given length. The search program
+- a second for **searching in the specified BTree** for subsequences of given length. The search program
 assumes that the user specified the proper BTree to use depending upon the query length.
-- third for **searching in the SQL database** for subsequences of specified length. This database
-  would be created by loading btree dump files using the SQLite interface outside our program.
+- a third for **searching in the SQL database** for subsequences of specified length. This database
+  should be created by loading provided btree dump files using the SQLite interface outside our program.
 
 The main Java classes should be named `GeneBankCreateBTree`, `GeneBankSearchBTree`, and
 `GeneBankSearchDatabase`.
@@ -389,8 +390,8 @@ java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-path
 
 **Note that the arguments can be provided in any order.**
 
-If the name of the GeneBank file is `xyz.gbk`, the subsequence length is <k> and the B-Tree degree
-is <t>, then the name of the B-Tree file should be `xyz.gbk.btree.data.<k>.<t>`
+If the name of the GeneBank file is `xyz.gbk`, the subsequence length is `<k>` and the B-Tree degree
+is `<t>`, then the name of the B-Tree file should be `xyz.gbk.btree.data.<k>.<t>`
 
 - `<cache>` specifies whether the program should use cache (value `1`) or
 no cache (value `0`); if the value is `1`, the `<cache-size>` has to be specified
@@ -413,17 +414,16 @@ have the same length as the DNA subsequences in the B-Tree file. The DNA strings
 - `[<cache-size>]` is an integer between `100` and `10000` (inclusive) that represents the
 maximum number of `BTreeNode` objects that can be stored in memory
 
-- `<SQLite-database-path>` the path to the SQL database created by loading a dump file using
+- `<SQLite-database-path>` the path to a SQL database created by loading a dump file using
   SQLite's .import command. The name of the database file should be `xyz.k.db` where the sequence
-  length is `<k>`, and the GeneBank file is `xyz.gbk`. The database file should have been
-  created by the `GeneBankCreateBTree` program from the BTree it creates
+  length is `<k>`, and the GeneBank file is `xyz.gbk`.
 
 - `[<debug-level>]` is an optional argument with a default value of zero
 
     - It must support at least the following values for `GeneBankSearchBTree`:
 
         - `0`: The output of the queries should be printed on the standard output stream. Any
-        diagnostic messages, help and status messages must be be printed on the standard
+        diagnostic messages, help and status messages must be printed on the standard
         error stream
 
 		- '1': The program displays more verbose messages. For example, it can show
@@ -431,7 +431,7 @@ maximum number of `BTreeNode` objects that can be stored in memory
 
     - It must support at least the following values for `GeneBankCreateBTree`:
 
-        - `0`: Any diagnostic messages, help and status messages must be be printed on standard
+        - `0`: Any diagnostic messages, help and status messages must be printed on standard
         error stream
 
         - `1`: The program writes a text file named `dump`, containing the frequency and the DNA
@@ -549,10 +549,24 @@ of memory), we were able to bring the time to create the BTree down to only 2m19
 
 ## 7. Using a Database 
 
-Using the dumpfiles from your BTree, load the data into an SQLite database using the
+A common technique is to provide project results in a common format. The results
+will then be accessible to other researchers much more easily.
+
+In this project, your team will practice this technique by creating an SQL database
+that has subsequence data in it.
+
+In the real world, the GeneBankCreateBtree program would need to be modified to create
+the database from an existing BTree. In this project, the correct BTree dump files are
+provided for `test0.gbk` and `test5.gbk`. 
+
+Using these dumpfiles, load the data into an SQLite database using the
 SQLite .import command. See the documentation 
 [here](https://sqlite.org/cli.html#importing_files_as_csv_or_other_formats).
-Then we will create a separate search program named `GeneBankSearchDatabase` 
+
+Loading the data from the dumpfiles prevents your team from needing a fully 
+functioning BTree to complete this requirement.
+
+Then create a separate search program named `GeneBankSearchDatabase` 
 that uses the database instead of the BTree. This is a common pattern in real life
 applications, where we may crunch lots of data using a data
 structure and then store the results in a database for ease of access.
@@ -566,7 +580,7 @@ $ java -jar build/libs/GeneBankSearchDatabase.jar --database=<SQLite-database-pa
       --queryfile=<query-file>
 ```
 
-We will use the embedded SQLite database for searching the database.  The SQLite driver is fully
+Use the embedded SQLite database for searching the database. The SQLite driver is fully
 contained in a jar file that gradle will automatically pull down for us. See the database
 example in the section below on how to use SQLite.
 
@@ -611,7 +625,7 @@ The expected dump files and query results are provided  for `test0.gbk` and `tes
 In particular, results are provided for `query1`,..., `query10`, `query20`, and `query31` query files
 for `test0.gbk` and `test5.gbk` GeneBank files.
 
-Three test scripts are provided at the top-level of the project (for intergration testing). These
+Three test scripts are provided at the top-level of the project (for integration testing). These
 compare your results to the results files mentioned above.
 
 ```bash
@@ -665,7 +679,7 @@ and include it with your submission.
 
 Please see the [AWS
 notes](https://docs.google.com/document/d/1v5a0XlzaNyi63TXXKP4BQsPIdJt4Zkxn2lZofVP8qqw/edit?usp=sharing)
-for a step by step guide on running your project on the AWS cloud. 
+for a step-by-step guide on running your project on the AWS cloud. 
 
 ## 11. Progress Reports
 
