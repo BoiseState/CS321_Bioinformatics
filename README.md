@@ -45,7 +45,7 @@ Use the following command to check our installed JDK version:
 $ javac -version
 ```
 
-This project **does not work** with JDK 22.
+This project **does not work** with JDK 23 (released September 2024).
 
 It is recommended to use any of the following versions:
 - JDK 8 (LTS)
