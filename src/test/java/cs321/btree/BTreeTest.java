@@ -57,7 +57,7 @@ public class BTreeTest {
      * @throws BTreeException Exception thrown when BTree encounters an unexpected problem
      */
     @Test
-    public void testBTreeCreate() throws BTreeException{
+    public void testCreate() throws BTreeException{
 
 
         BTree b = new BTree(testFilename);
@@ -79,7 +79,7 @@ public class BTreeTest {
      * @throws BTreeException Exception thrown when BTree encounters an unexpected problem
      */
     @Test
-    public void testBTreeCreateDegree () throws BTreeException {
+    public void testCreateDegree() throws BTreeException {
 
         BTree b = new BTree(3, testFilename);
 
@@ -106,7 +106,7 @@ public class BTreeTest {
         assertEquals(1, b.getSize());
         assertEquals(0, b.getHeight());
 
-        assertTrue(validateBTreeInserts(b, new long[]{1}));
+        assertTrue(validateInserts(b, new long[]{1}));
     }
 
     /**
@@ -130,7 +130,7 @@ public class BTreeTest {
         assertEquals(10, b.getSize());
         assertEquals(2, b.getHeight());
 
-        assertTrue(validateBTreeInserts(b, input));
+        assertTrue(validateInserts(b, input));
     }
 
 
@@ -155,7 +155,7 @@ public class BTreeTest {
         assertEquals(10, b.getSize());
         assertEquals(2, b.getHeight());
 
-        assertTrue(validateBTreeInserts(b, input));
+        assertTrue(validateInserts(b, input));
     }
 
 
@@ -178,7 +178,7 @@ public class BTreeTest {
         assertEquals(1, b.getSize());
         assertEquals(0, b.getHeight());
 
-        assertTrue(validateBTreeInserts(b, new long[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
+        assertTrue(validateInserts(b, new long[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
     }
 
 
@@ -203,7 +203,7 @@ public class BTreeTest {
         assertEquals(10000, b.getSize());
         assertEquals(12, b.getHeight());
 
-        assertTrue(validateBTreeInserts(b, input));
+        assertTrue(validateInserts(b, input));
     }
 
     /**
@@ -236,7 +236,7 @@ public class BTreeTest {
         assertEquals(1, b.getHeight());
         assertEquals(3, b.getNumberOfNodes());
 
-        assertTrue(validateBTreeInserts(b, input));
+        assertTrue(validateInserts(b, input));
     }
 
     /**
@@ -392,7 +392,7 @@ public class BTreeTest {
 
         assertEquals(2, obj.getCount());
 
-        assertTrue(validateBTreeInserts(b, input));
+        assertTrue(validateInserts(b, input));
     }
 
 
@@ -421,7 +421,7 @@ public class BTreeTest {
 
         assertEquals(2, obj.getCount());
 
-        assertTrue(validateBTreeInserts(b, input));
+        assertTrue(validateInserts(b, input));
     }
 
 
@@ -468,7 +468,7 @@ public class BTreeTest {
      *
      * @return true if BTree in order traversal matches provide input
      */
-    private boolean validateBTreeInserts(BTree b, long[] inputKeys) throws IOException {
+    private boolean validateInserts(BTree b, long[] inputKeys) throws IOException {
 
         long[] bTreeKeys = b.getSortedKeyArray();
 
