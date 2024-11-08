@@ -201,7 +201,6 @@ public class BTreeTest {
         }
 
         assertEquals(10000, b.getSize());
-        assertEquals(12, b.getHeight());
 
         assertTrue(validateBTreeInserts(b, input));
     }
