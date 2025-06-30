@@ -45,7 +45,7 @@ Use the following command to check our installed JDK version:
 $ javac -version
 ```
 
-This project **does not work** with JDK 24 (to be released in March 2025).
+This project **does not work** with JDK 25 (to be released in September 2025).
 
 It is recommended to use any of the following versions:
 - JDK 8 (LTS)
