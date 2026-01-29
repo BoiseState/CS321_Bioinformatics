@@ -152,31 +152,30 @@ customize the Scrum process learned in CS-HU 208 and focus exclusively on:
 Creating the tasks upfront will allow dividing and assigning the work in order to provide
 transparency and accountability within the team.
 
-Use the [Projects](https://github.com/BoiseState/CS321_Bioinformatics/projects) tab (i.e., a simplified version
-of [ZenHub](https://www.zenhub.com)) to configure our own team Scrum board,
-based on this [project example](https://github.com/BoiseState/CS321_Bioinformatics/projects/1)
+Create your own team Scrum board based on the [Sample Scrum Board](https://github.com/orgs/BoiseState/projects/255)
+found in the [Projects](https://github.com/BoiseState/CS321_Bioinformatics/projects) tab
 (feel free to copy the contents of these tasks to your Scrum board).
 
-Your Scrum board should contain the following columns (pipelines):
+Your Scrum board should contain the following columns:
 
-Column Name     | Description
---------------- | -----------
-Product Backlog | All (unassigned) tasks that are going to be completed by the team throughout the duration of the project
-Sprint Backlog  | Tasks proposed to be implemented in the current week (sprint), assigned to developers
-In Progress     | Tasks currently being worked on
-Review/QA       | Tasks ready to be reviewed by another team member
-Closed          | Completed tasks, whose corresponding code is integrated in the `master` branch
+| Column Name     | Description                                                                                              |
+|-----------------|----------------------------------------------------------------------------------------------------------|
+| Product Backlog | All (unassigned) tasks that are going to be completed by the team throughout the duration of the project |
+| Sprint Backlog  | Tasks proposed to be implemented in the current week (sprint), assigned to developers                    |
+| In Progress     | Tasks currently being worked on                                                                          |
+| Review/QA       | Tasks ready to be reviewed by another team member                                                        |
+| Closed          | Completed tasks, whose corresponding code is integrated in the `master` branch                           |
 
 Tasks should be assigned to the developer working on them. Each team
 member should add to the project log file, Project-Log.md, the tasks (e.g.,
 `https://github.com/StudentUserNameHostingRepo/CS321_Bioinformatics/issues/123`) completed that
-week, as described in the [progress reports](#9-progress-reports).
+week, as described in the [progress reports](#11-progress-reports).
 
 Here is an example of a [valid task](https://github.com/BoiseState/CS321_Bioinformatics/issues/3)
 written in engineering language that is assigned to a developer. This task should be referenced
-by a commit containing a message similar to `Implements task #3`.
+by a commit containing a message similar to  `Closes #3` or `Implements task #3`.
 
-As a warm up exercise, each team member should create a task similar to [`task
+As a warm-up exercise, each team member should create a task similar to [`task
 #2`](https://github.com/BoiseState/CS321_Bioinformatics/issues/2) and then edit the
 [`README-submission.md`](/README-submission.md) file with their information.
 
@@ -199,7 +198,7 @@ This has been included in the starter repository so you use it as a template.
 - [Using a Database](#7-using-a-database)
 - [Useful Examples](#8-useful-examples)
 - [Test Scripts](#9-test-scripts)
-- [Testing in the Cloud](#10-testing-in-the-cloud)
+- [Extra Credit: Testing a Large File in the Cloud](#10-extra-credit-testing-a-large-file-in-the-cloud)
 - [Progress Reports](#11-progress-reports)
 - [Submission](#12-submission)
 
@@ -548,7 +547,7 @@ We were able to create a B-Tree for the full human Y chromosome (`data/files_gbk
 in about 14 minutes using a cache of size 10,000. With a cache of size 100,000 (about 400 MB
 of memory), we were able to bring the time to create the BTree down to only 2m19s.
 
-## 7. Using a Database 
+## 7. Using a Database
 
 A common technique is to provide project results in a common format. The results
 will then be accessible to other researchers much more easily.
