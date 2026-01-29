@@ -10,14 +10,21 @@
 # - Java 18 (deprecated; officially supported since Gradle 7.5)
 # - Java 19 (deprecated; officially supported since Gradle 7.6)
 # - Java 20 (deprecated; officially supported since Gradle 8.1)
-# - Java 21 (latest LTS; officially supported since Gradle 8.4)
+# - Java 21 (LTS; officially supported since Gradle 8.4)
 # - Java 22 (deprecated; officially supported since Gradle 8.8)
 # - Java 23 (deprecated; officially supported since Gradle 8.10)
-# - Java 24 (current; to be deprecated in September 2025; officially supported since Gradle 8.14)
-# - Java 25 (LTS; to be released in September 2025; not officially supported by Gradle)
+# - Java 24 (deprecated; officially supported since Gradle 8.14)
+# - Java 25 (current; latest LTS; partially supported since Gradle 8.14.4)
+#   - NOTE: Java 25 will *NOT* be officially (fully) supported in Gradle 8,
+#           see https://github.com/gradle/gradle/issues/35111
+#   - NOTE: Java 25 is officially supported since Gradle 9.1, but Gradle 9 is backward incompatible with Gradle 8,
+#           and requires Java 17+ to run. In other words, if we switch to Gradle 9, then this project will
+#           no longer work with Java 8 and Java 11
 # - Java 26 (to be released in March 2026; to be deprecated in September 2026; not officially supported by Gradle)
 # - Java 27 (to be released in September 2026; to be deprecated in March 2027; not officially supported by Gradle)
 # - Java 28 (to be released in March 2027; to be deprecated in September 2027; not officially supported by Gradle)
+# - Java 29 (LTS; to be released in September 2027; not officially supported by Gradle)
+# - Java 30 (to be released in March 2028; to be deprecated in September 2028; not officially supported by Gradle)
 name: CS321 Bioinformatics CI with Gradle
 
 on:
@@ -33,7 +40,11 @@ jobs:
 
     strategy:
       matrix:
-        java: [ '8', '11', '17', '21', '24' ]
+        # This project is tested against all supported LTS versions
+        #
+        # For your team, you can keep only one version (i.e., the one every team member is using locally)
+        # in order to reduce the number of minutes used by GitHub Actions
+        java: [ '8', '11', '17', '21', '25' ]
     name: Java version ${{ matrix.Java }}
 
     steps:

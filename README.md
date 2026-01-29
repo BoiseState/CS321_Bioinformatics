@@ -45,13 +45,14 @@ Use the following command to check our installed JDK version:
 $ javac -version
 ```
 
-This project **does not work** with JDK 25 (to be released in September 2025).
+This project **does not work** with JDK 26 (to be released in March 2026).
 
 It is recommended to use any of the following versions:
 - JDK 8 (LTS)
 - JDK 11 (LTS)
 - JDK 17 (LTS)
 - JDK 21 (LTS)
+- JDK 25 (LTS)
 
 :book: See this [wiki page for additional details regarding the supported Java versions and links to download the correct JDK versions](https://github.com/BoiseState/CS321_Bioinformatics/wiki/Install-the-correct-JDK-version).
 
